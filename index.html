@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vitrine Digital — sua loja de indicações</title>
+<meta name="description" content="Vitrine Digital: os melhores produtos, todos em um só lugar.">
+
+<!--
+  ================================================================
+  COMO EDITAR ESTE SITE (leia antes de publicar)
+  ================================================================
+  1) Para adicionar um produto, procure a lista "PRODUTOS" mais
+     abaixo no <script> e copie um bloco { ... } dentro dela.
+     Preencha:
+       nome        -> nome do produto
+       categoria   -> uma das categorias já existentes (ou nova)
+       preco       -> texto livre, ex: "R$ 89,90"
+       selo        -> texto pequeno, ex: "Mais vendido" (opcional)
+       emoji       -> um emoji que representa o produto
+       link        -> SEU LINK DE AFILIADO AQUI
+
+  2) Para trocar o nome/textos do topo, procure a seção "HERO"
+     no HTML logo abaixo do <body>.
+
+  3) Depois de editar, salve o arquivo e reabra no navegador —
+     não precisa de nenhum programa especial.
+  ================================================================
+-->
+
+<style>
+  :root{
+    --bg-0: #060a14;
+    --bg-1: #0d1526;
+    --bg-2: #121b32;
+    --glass: rgba(140, 170, 255, 0.06);
+    --glass-border: rgba(160, 190, 255, 0.14);
+    --indigo: #4c6fff;
+    --indigo-light: #8aa3ff;
+    --indigo-deep: #1c2f6b;
+    --gold: #e8c57a;
+    --text: #edf1fa;
+    --text-muted: #90a0c4;
+    --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
+    --font-body: 'Inter', 'Segoe UI', sans-serif;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+  *{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--bg-0);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+
+  a{ color: inherit; text-decoration: none; }
+
+  /* ---------- fundo com "vidraça" de vitrine ---------- */
+  .window-grid{
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background:
+      linear-gradient(var(--glass-border) 1px, transparent 1px) 0 0/64px 64px,
+      linear-gradient(90deg, var(--glass-border) 1px, transparent 1px) 0 0/64px 64px,
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(76,111,255,0.25), transparent),
+      var(--bg-0);
+    opacity: 0.5;
+  }
+
+  .glow{
+    position: fixed;
+    z-index: -1;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    filter: blur(120px);
+    background: radial-gradient(circle, rgba(76,111,255,0.35), transparent 70%);
+    top: -200px; left: -150px;
+    pointer-events: none;
+  }
+
+  /* ---------- header ---------- */
+  header{
+    position: sticky; top:0; z-index: 50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 18px 6vw;
+    background: rgba(6,10,20,0.7);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--glass-border);
+  }
+
+  .logo{
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: 0.5px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .logo .pane{
+    width: 14px; height: 22px;
+    border: 1.5px solid var(--indigo-light);
+    border-radius: 2px;
+    display:inline-block;
+    box-shadow: 0 0 12px rgba(138,163,255,0.6);
+  }
+
+  nav.cats{
+    display:flex; gap: 22px;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+  }
+  nav.cats span{ cursor:pointer; transition: color .2s; }
+  nav.cats span:hover, nav.cats span.active{ color: var(--indigo-light); }
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding: 9vh 6vw 6vh;
+    text-align: left;
+    max-width: 900px;
+  }
+  .hero .eyebrow{
+    color: var(--gold);
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display:block;
+  }
+  .hero h1{
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    line-height: 1.05;
+    margin: 0 0 20px;
+    font-weight: 700;
+  }
+  .hero h1 em{
+    font-style: normal;
+    background: linear-gradient(100deg, var(--indigo-light), var(--gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hero p{
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    max-width: 560px;
+    margin-bottom: 32px;
+  }
+  .hero .cta{
+    display:inline-flex; align-items:center; gap:10px;
+    background: var(--indigo);
+    color: #fff;
+    padding: 13px 26px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: 0 8px 30px rgba(76,111,255,0.35);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .hero .cta:hover{ transform: translateY(-2px); box-shadow: 0 12px 34px rgba(76,111,255,0.5); }
+
+  /* ---------- barra de busca / filtro ---------- */
+  .toolbar{
+    display:flex; flex-wrap:wrap; gap:14px; align-items:center;
+    padding: 0 6vw 30px;
+  }
+  .toolbar input{
+    flex:1; min-width: 220px;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    color: var(--text);
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+  }
+  .toolbar input::placeholder{ color: var(--text-muted); }
+  .chip{
+    padding: 9px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--glass-border);
+    background: var(--glass);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all .2s ease;
+  }
+  .chip.active, .chip:hover{
+    color: var(--bg-0);
+    background: var(--indigo-light);
+    border-color: var(--indigo-light);
+  }
+
+  /* ---------- vitrine (grid de produtos) ---------- */
+  .vitrine{
+    padding: 0 6vw 10vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 22px;
+  }
+
+  .card{
+    position: relative;
+    background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
+    border: 1px solid var(--glass-border);
+    border-radius: 18px;
+    padding: 22px;
+    display:flex; flex-direction:column;
+    overflow: hidden;
+    transition: transform .25s ease, border-color .25s ease;
+  }
+  .card::before{
+    content:"";
+    position:absolute; inset:0;
+    background: linear-gradient(140deg, rgba(255,255,255,0.06), transparent 40%);
+    pointer-events:none;
+  }
+  .card:hover{
+    transform: translateY(-6px);
+    border-color: var(--indigo-light);
+  }
+  .card .badge{
+    position:absolute; top:16px; right:16px;
+    background: rgba(232,197,122,0.15);
+    color: var(--gold);
+    font-size: 0.7rem;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(232,197,122,0.35);
+  }
+  .card .icon{
+    width: 64px; height: 64px;
+    display:flex; align-items:center; justify-content:center;
+    font-size: 2rem;
+    margin-bottom: 16px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.10), rgba(76,111,255,0.08) 60%, transparent 100%);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.06);
+  }
+  .card .cat{
+    font-size: 0.72rem;
+    color: var(--indigo-light);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 6px;
+  }
+  .card h3{
+    font-family: var(--font-display);
+    font-size: 1.08rem;
+    margin: 0 0 10px;
+  }
+  .card .price{
+    color: var(--text);
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-top: auto;
+    margin-bottom: 14px;
+  }
+  .card .price small{ color: var(--text-muted); font-weight: 400; }
+  .card a.btn{
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    background: var(--indigo);
+    color:#fff;
+    padding: 11px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background .2s ease;
+  }
+  .card a.btn:hover{ background: var(--indigo-light); color: var(--bg-0); }
+
+  .empty{
+    grid-column: 1 / -1;
+    text-align:center;
+    padding: 60px 20px;
+    color: var(--text-muted);
+  }
+
+  footer{
+    padding: 40px 6vw 60px;
+    border-top: 1px solid var(--glass-border);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  }
+
+  @media (max-width: 640px){
+    nav.cats{ display:none; }
+    header{ padding: 16px 5vw; }
+    .hero{ padding: 7vh 5vw 4vh; }
+    .vitrine{ padding: 0 5vw 8vh; }
+    .toolbar{ padding: 0 5vw 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="window-grid"></div>
+<div class="glow"></div>
+
+<header>
+  <div class="logo"><span class="pane"></span> Vitrine Digital</div>
+  <nav class="cats" id="navCats"></nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="eyebrow">Curadoria de ofertas</span>
+  <h1>Tudo em <em>uma vitrine</em>,<br>um clique de distância.</h1>
+  <p>Selecionamos produtos de várias categorias para você ver, comparar e comprar direto na loja parceira — sem enrolação, sem letra miúda.</p>
+  <a href="#vitrine" class="cta">Ver produtos ↓</a>
+</section>
+
+<div class="toolbar">
+  <input type="text" id="busca" placeholder="Buscar um produto...">
+  <div id="chips" style="display:flex; gap:10px; flex-wrap:wrap;"></div>
+</div>
+
+<section class="vitrine" id="vitrine"></section>
+
+<footer>
+  <span>Vitrine Digital — indicações selecionadas.</span>
+  <span>Os links desta página são de afiliado: ao comprar, podemos receber uma comissão, sem custo extra para você.</span>
+</footer>
+
+<script>
+/* =====================================================
+   PRODUTOS — edite/adicione itens aqui
+   Cada item precisa de: nome, categoria, preco, emoji, link
+   "selo" é opcional (pode remover a linha)
+===================================================== */
+const PRODUTOS = [
+  { nome: "Fone Bluetooth Over-ear", categoria: "Eletrônicos", preco: "R$ 189,90", selo: "Mais vendido", emoji: "🎧", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+  { nome: "Smartwatch Esportivo", categoria: "Eletrônicos", preco: "R$ 249,00", emoji: "⌚", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+  { nome: "Mini Projetor Portátil", categoria: "Eletrônicos", preco: "R$ 329,00", emoji: "📽️", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+
+  { nome: "Perfume Importado 100ml", categoria: "Beleza Feminina", preco: "R$ 159,90", selo: "Novidade", emoji: "🌸", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+  { nome: "Kit Skincare Facial", categoria: "Beleza Feminina", preco: "R$ 99,90", emoji: "🫧", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+  { nome: "Kit Maquiagem Básico", categoria: "Beleza Feminina", preco: "R$ 89,90", emoji: "💄", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+
+  { nome: "Perfume Masculino Amadeirado", categoria: "Beleza Masculina", preco: "R$ 149,90", emoji: "🧴", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+  { nome: "Kit Skincare Facial Masculino", categoria: "Beleza Masculina", preco: "R$ 94,90", emoji: "🧼", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+  { nome: "Kit Barba Completo", categoria: "Beleza Masculina", preco: "R$ 79,90", emoji: "🪒", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+
+  { nome: "Bolsa Transversal", categoria: "Moda", preco: "R$ 129,90", emoji: "👜", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+  { nome: "Óculos de Sol Polarizado", categoria: "Moda", preco: "R$ 79,90", emoji: "🕶️", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+
+  { nome: "Tênis Casual Unissex", categoria: "Tênis Unissex", preco: "R$ 219,90", selo: "Promoção", emoji: "👟", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+  { nome: "Tênis Esportivo Unissex", categoria: "Tênis Unissex", preco: "R$ 189,90", emoji: "👟", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+
+  { nome: "Luminária de Mesa LED", categoria: "Casa", preco: "R$ 79,90", emoji: "💡", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+  { nome: "Organizador de Armário", categoria: "Casa", preco: "R$ 59,90", emoji: "🗄️", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+  { nome: "Garrafa Térmica Inox", categoria: "Casa", preco: "R$ 69,90", emoji: "🥤", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+];
+
+const vitrine = document.getElementById('vitrine');
+const chipsBox = document.getElementById('chips');
+const navCats = document.getElementById('navCats');
+const busca = document.getElementById('busca');
+
+const categorias = ["Todos", ...new Set(PRODUTOS.map(p => p.categoria))];
+let categoriaAtiva = "Todos";
+
+function renderChips(){
+  chipsBox.innerHTML = "";
+  navCats.innerHTML = "";
+  categorias.forEach(cat => {
+    const chip = document.createElement('div');
+    chip.className = "chip" + (cat === categoriaAtiva ? " active" : "");
+    chip.textContent = cat;
+    chip.onclick = () => { categoriaAtiva = cat; renderChips(); renderProdutos(); };
+    chipsBox.appendChild(chip);
+
+    const navItem = document.createElement('span');
+    navItem.textContent = cat;
+    navItem.className = (cat === categoriaAtiva ? "active" : "");
+    navItem.onclick = () => { categoriaAtiva = cat; renderChips(); renderProdutos(); };
+    navCats.appendChild(navItem);
+  });
+}
+
+function renderProdutos(){
+  const termo = busca.value.trim().toLowerCase();
+  const lista = PRODUTOS.filter(p =>
+    (categoriaAtiva === "Todos" || p.categoria === categoriaAtiva) &&
+    p.nome.toLowerCase().includes(termo)
+  );
+
+  vitrine.innerHTML = "";
+  if(lista.length === 0){
+    vitrine.innerHTML = '<div class="empty">Nenhum produto encontrado com esse filtro.</div>';
+    return;
+  }
+
+  lista.forEach(p => {
+    const card = document.createElement('div');
+    card.className = "card";
+    card.innerHTML = `
+      ${p.selo ? `<span class="badge">${p.selo}</span>` : ""}
+      <div class="icon">${p.emoji}</div>
+      <div class="cat">${p.categoria}</div>
+      <h3>${p.nome}</h3>
+      <div class="price">${p.preco} <small>à vista</small></div>
+      <a class="btn" href="${p.link}" target="_blank" rel="noopener sponsored">Ver oferta →</a>
+    `;
+    vitrine.appendChild(card);
+  });
+}
+
+busca.addEventListener('input', renderProdutos);
+
+renderChips();
+renderProdutos();
+</script>
+
+</body>
+</html>
