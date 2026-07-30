@@ -338,28 +338,29 @@
    Cada item precisa de: nome, categoria, preco, emoji, link
    "selo" é opcional (pode remover a linha)
 ===================================================== */
-const PRODUTOS =  [
-  { nome: "Petunia Perfume Feminino Eau De Toilette Olímpia 100Ml", categoria: "Beleza Feminina", preco: "R$ 65,11", selo: "Mais vendido", emoji: "🧴", imagem: "https://m.media-amazon.com/images/I/51rCxDd0SsL._AC_SX425_.jpg", link: "https://link.amazon/B07UawUqf" },
-  { nome: "Smartwatch Esportivo", categoria: "Eletrônicos", preco: "R$ 249,00", emoji: "⌚", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
-  { nome: "Mini Projetor Portátil", categoria: "Eletrônicos", preco: "R$ 329,00", emoji: "📽️", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+const PRODUTOS = [
+  { nome: "Fone Bluetooth Over-ear", categoria: "Eletrônicos", preco: "R$ 189,90", selo: "Mais vendido", emoji: "🎧", imagem: "", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+  { nome: "Smartwatch Esportivo", categoria: "Eletrônicos", preco: "R$ 249,00", emoji: "⌚", imagem: "", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+  { nome: "Mini Projetor Portátil", categoria: "Eletrônicos", preco: "R$ 329,00", emoji: "📽️", imagem: "", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
 
-  { nome: "Perfume Importado 100ml", categoria: "Beleza Feminina", preco: "R$ 159,90", selo: "Novidade", emoji: "🌸", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
-  { nome: "Kit Skincare Facial", categoria: "Beleza Feminina", preco: "R$ 99,90", emoji: "🫧", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
-  { nome: "Kit Maquiagem Básico", categoria: "Beleza Feminina", preco: "R$ 89,90", emoji: "💄", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+  { nome: "Perfume Importado 100ml", categoria: "Beleza Feminina", preco: "R$ 159,90", selo: "Novidade", emoji: "🌸", imagem: "", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+{ nome: "Petunia Perfume Feminino Eau De Toilette Olímpia 100Ml", categoria: "Beleza Feminina", preco: "R$ 65,11", selo: "Mais vendido", emoji: "🧴", imagem: "https://m.media-amazon.com/images/I/51rCxDd0SsL._AC_SX425_.jpg", link: "https://link.amazon/B07UawUqf" },
+  { nome: "Kit Skincare Facial", categoria: "Beleza Feminina", preco: "R$ 99,90", emoji: "🫧", imagem: "", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+  { nome: "Kit Maquiagem Básico", categoria: "Beleza Feminina", preco: "R$ 89,90", emoji: "💄", imagem: "", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
 
-  { nome: "Perfume Masculino Amadeirado", categoria: "Beleza Masculina", preco: "R$ 149,90", emoji: "🧴", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
-  { nome: "Kit Skincare Facial Masculino", categoria: "Beleza Masculina", preco: "R$ 94,90", emoji: "🧼", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
-  { nome: "Kit Barba Completo", categoria: "Beleza Masculina", preco: "R$ 79,90", emoji: "🪒", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+  { nome: "Azzaro Pour Homme Perfume Masculino Eau de Toilette", categoria: "Beleza Masculina", preco: "R$ 154,99", emoji: "🧴", imagem: "https://m.media-amazon.com/images/I/81yBWXtSGFL._AC_SX679_.jpg", link: "https://link.amazon/B04ZWR4SA" },
+  { nome: "Kit Skincare Facial Masculino", categoria: "Beleza Masculina", preco: "R$ 94,90", emoji: "🧼", imagem: "", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+  { nome: "Kit Barba Completo", categoria: "Beleza Masculina", preco: "R$ 79,90", emoji: "🪒", imagem: "", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
 
-  { nome: "Bolsa Transversal", categoria: "Moda", preco: "R$ 129,90", emoji: "👜", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
-  { nome: "Óculos de Sol Polarizado", categoria: "Moda", preco: "R$ 79,90", emoji: "🕶️", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+  { nome: "Bolsa Transversal", categoria: "Moda", preco: "R$ 129,90", emoji: "👜", imagem: "", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+  { nome: "Óculos de Sol Polarizado", categoria: "Moda", preco: "R$ 79,90", emoji: "🕶️", imagem: "", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
 
-  { nome: "Tênis Casual Unissex", categoria: "Tênis Unissex", preco: "R$ 219,90", selo: "Promoção", emoji: "👟", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
-  { nome: "Tênis Esportivo Unissex", categoria: "Tênis Unissex", preco: "R$ 189,90", emoji: "👟", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+  { nome: "Tênis Casual Unissex", categoria: "Tênis Unissex", preco: "R$ 219,90", selo: "Promoção", emoji: "👟", imagem: "", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+  { nome: "Tênis Esportivo Unissex", categoria: "Tênis Unissex", preco: "R$ 189,90", emoji: "👟", imagem: "", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
 
-  { nome: "Luminária de Mesa LED", categoria: "Casa", preco: "R$ 79,90", emoji: "💡", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
-  { nome: "Organizador de Armário", categoria: "Casa", preco: "R$ 59,90", emoji: "🗄️", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
-  { nome: "Garrafa Térmica Inox", categoria: "Casa", preco: "R$ 69,90", emoji: "🥤", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+  { nome: "Luminária de Mesa LED", categoria: "Casa", preco: "R$ 79,90", emoji: "💡", imagem: "", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+  { nome: "Organizador de Armário", categoria: "Casa", preco: "R$ 59,90", emoji: "🗄️", imagem: "", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+  { nome: "Garrafa Térmica Inox", categoria: "Casa", preco: "R$ 69,90", emoji: "🥤", imagem: "", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
 ];
 
 const vitrine = document.getElementById('vitrine');
