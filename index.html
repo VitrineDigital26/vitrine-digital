@@ -424,7 +424,7 @@ function renderProdutos(){
     card.className = "card";
     card.innerHTML = `
       ${p.selo ? `<span class="badge">${p.selo}</span>` : ""}
-      <div class="icon">${p.emoji}</div>
+      ${p.imagem ? `<div class="foto"><img src="${p.imagem}" alt="${p.nome}" loading="lazy"></div>` : `<div class="icon">${p.emoji}</div>`}
       <div class="cat">${p.categoria}</div>
       <h3>${p.nome}</h3>
       <div class="price">${p.preco} <small>à vista</small></div>
