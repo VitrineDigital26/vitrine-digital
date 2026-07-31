@@ -473,21 +473,36 @@ const CATEGORIES = ["Todos","Eletrônicos","Beleza Feminina","Beleza Masculina",
    PRODUTOS — troque "link" pelo seu link de afiliado
    e "img" pela URL real da imagem do produto.
 ========================================================= */
+/*
+MODELO DE PRODUTO — copie o bloco abaixo (tirando as marcas de comentário)
+e cole dentro do array PRODUCTS logo abaixo, trocando os valores pelos do
+seu produto. Veja também o arquivo "banco-de-modelos.md" para modelos
+prontos por categoria (perfume, eletrônico, moda, tênis, casa etc).
+
+  {
+    id:1, cat:"Beleza Masculina", brand:"NOME DA MARCA", name:"Nome completo do produto",
+    desc:"Descrição do produto em 2-3 frases.",
+    tagline:"Frase curta de efeito",
+    old:199.90, price:129.90,
+    img:"LINK-DA-FOTO-DO-PRODUTO.jpg",
+    link:"SEU-LINK-DE-AFILIADO",
+    specs:[["tag","Marca","Nome da marca"],["box","Característica","Valor"]]
+  }
+*/
 const PRODUCTS = [
-  ,{
-    id:1, cat:"Beleza Masculina", brand:"AZZARO", name:"Azzaro Pour Homme Perfume Masculino Eau de Toilette",
-    desc:"O **Azzaro Pour Homme** é um perfume masculino clássico, com fragrância marcante, excelente fixação e elegância que deixa uma impressão inesquecível",
-    tagline:"Elegância clássica em cada borrifada",
-    old:299.00, price:154.99,
-    img:"https://m.media-amazon.com/images/I/71G3D8yIs0L._AC_SL1000_.jpg",
-    link:"https://link.amazon/B00LlArnI",
-    specs:[
-  ["tag","Marca","Azzaro"],
-  ["gender","Gênero","Masculino"],
-  ["leaf","Família olfativa","Amadeirada"],
-  ["drop","Concentração","Eau de Toilette"],
-  ["box","Volume","50 ml"]
-]
+];
+
+/* Exemplos antigos guardados aqui apenas como referência — não usados no site */
+const PRODUCTS_EXEMPLOS_REFERENCIA = [
+  {
+    id:101, cat:"Beleza Masculina", brand:"AZZARO", name:"Azzaro Sport Eau de Toilette Masculino 100ml",
+    desc:"Perfume masculino fresco e energizante com toranja e sândalo que transmite vigor e dinamismo, ideal para o dia a dia e para a rotina de treino.",
+    tagline:"Frescor esportivo para encarar o dia com energia",
+    old:379.00, price:292.13,
+    img:"https://images.unsplash.com/photo-1594035910387-fea47794261f?w=600&q=80",
+    link:"https://exemplo-afiliado.com/azzaro-sport",
+    specs:[["tag","Marca","Azzaro"],["gender","Gênero","Masculino"],["leaf","Família olfativa","Fougère"],["drop","Concentração","Eau de Toilette"],["box","Volume","100 ml"],["sun","Estação indicada","Verão"],["clock","Fixação","4h"],["target","Projeção","Média"],["flower","Notas de saída","Toranja, notas cítricas"]]
+  },
   {
     id:2, cat:"Beleza Masculina", brand:"NAUTICA", name:"Nautica Voyage Eau de Toilette Masculino 50ml",
     desc:"Fragrância masculina fresca e aquática com maçã e folhas verdes, transmitindo uma sensação de limpeza e frescor perfeita para o dia a dia.",
@@ -605,14 +620,50 @@ const PRODUCTS = [
     link:"https://exemplo-afiliado.com/jogo-cama-nuvem",
     specs:[["home","Marca","Nuvem"],["ruler","Tecido","100% algodão, 200 fios"],["box","Tamanho","Casal"]]
   }
+  ,{
+    id:15, cat:"Beleza Masculina", brand:"AZZARO", name:"Azzaro Pour Homme Perfume Masculino Eau de Toilette 50ml",
+    desc:"O Azzaro Pour Homme é um perfume masculino clássico, com características marcantes, excelente fixação e uma personalidade que deixa uma impressão inesquecível.",
+    tagline:"Elegância clássica em cada borrifada",
+    old:299.00, price:154.99,
+    img:"https://m.media-amazon.com/images/I/71G3D8yIs0L._AC_SL1000_.jpg",
+    link:"https://link.amazon.com/B00LlArnI",
+    specs:[["tag","Marca","Azzaro"],["gender","Gênero","Masculino"],["leaf","Família olfativa","Amadeirada"],["drop","Concentração","Eau de Toilette"],["box","Volume","50 ml"]]
+  }
+  ,{
+    id:16, cat:"Beleza Masculina", brand:"NAUTICA", name:"Nautica Voyage Eau de Toilette Masculino 50ml",
+    desc:"Fragrância masculina fresca e aquática com maçã e folhas verdes, transmitindo uma sensação de limpeza e frescor perfeita para o dia a dia.",
+    tagline:"Um clássico importado com ótimo custo-benefício",
+    old:139.00, price:99.00,
+    img:"https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=600&q=80",
+    link:"https://exemplo-afiliado.com/nautica-voyage",
+    specs:[["tag","Marca","Náutica"],["gender","Gênero","Masculino"],["leaf","Família olfativa","Aquática"],["drop","Concentração","Eau de Toilette"],["box","Volume","50 ml"],["sun","Estação indicada","Verão"]]
+  }
+  ,{
+    id:17, cat:"Beleza Feminina", brand:"LUMIÈRE", name:"Lumière Femme Eau de Parfum 75ml",
+    desc:"Perfume feminino floral amadeirado com jasmim e baunilha, elegante e envolvente, perfeito para uso diário ou ocasiões especiais.",
+    tagline:"Elegância floral que acompanha o seu dia inteiro",
+    old:259.00, price:179.90,
+    img:"https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=600&q=80",
+    link:"https://exemplo-afiliado.com/lumiere-femme",
+    specs:[["tag","Marca","Lumière"],["gender","Gênero","Feminino"],["leaf","Família olfativa","Amadeirada floral"],["drop","Concentração","Eau de Parfum"],["box","Volume","75 ml"],["clock","Fixação","6h"]]
+  }
+  ,{
+    id:18, cat:"Beleza Feminina", brand:"NUANCE", name:"Kit Skincare Nuance Hidratação Facial",
+    desc:"Kit com sérum de vitamina C, hidratante facial e água micelar, formulado para peles sensíveis com resultado visível em poucas semanas.",
+    tagline:"Rotina completa em 3 passos para a sua pele",
+    old:189.00, price:129.00,
+    img:"https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&q=80",
+    link:"https://exemplo-afiliado.com/kit-nuance",
+    specs:[["tag","Marca","Nuance"],["box","Itens no kit","3 produtos"],["drop","Tipo de pele","Todos os tipos"],["shield","Dermatologicamente testado","Sim"]]
+  }
 ];
 
 /* =========================================================
    ESTADO E RENDERIZAÇÃO
 ========================================================= */
 const PRICES = PRODUCTS.map(p=>p.price);
-const PRICE_MIN = Math.floor(Math.min(...PRICES));
-const PRICE_MAX = Math.ceil(Math.max(...PRICES));
+const PRICE_MIN = PRICES.length ? Math.floor(Math.min(...PRICES)) : 0;
+const PRICE_MAX = PRICES.length ? Math.ceil(Math.max(...PRICES)) : 1000;
 
 let state = { cat:"Todos", search:"", min:PRICE_MIN, max:PRICE_MAX, onlyDeal:false, sort:"relevance" };
 
@@ -780,6 +831,13 @@ document.addEventListener('keydown', e=>{ if(e.key==='Escape') overlay.classList
 /* --- vitrine (hero) com 4 destaques em oferta --- */
 function renderShowcase(){
   const top = [...PRODUCTS].sort((a,b)=>discountPct(b)-discountPct(a)).slice(0,4);
+  if(!top.length){
+    document.getElementById('heroShowcase').innerHTML = `
+      <div class="showcase-card" style="grid-column:1/-1;text-align:center;color:var(--text-400);padding:20px 10px;">
+        Adicione seus produtos no array PRODUCTS para eles aparecerem aqui.
+      </div>`;
+    return;
+  }
   document.getElementById('heroShowcase').innerHTML = top.map(p=>`
     <div class="showcase-card">
       <img src="${p.img}" alt="${p.name}">
