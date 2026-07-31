@@ -3,442 +3,792 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vitrine Digital — sua loja de indicações</title>
-<meta name="description" content="Vitrine Digital: os melhores produtos, todos em um só lugar.">
-
-<!--
-  ================================================================
-  COMO EDITAR ESTE SITE (leia antes de publicar)
-  ================================================================
-  1) Para adicionar um produto, procure a lista "PRODUTOS" mais
-     abaixo no <script> e copie um bloco { ... } dentro dela.
-     Preencha:
-       nome        -> nome do produto
-       categoria   -> uma das categorias já existentes (ou nova)
-       preco       -> texto livre, ex: "R$ 89,90"
-       selo        -> texto pequeno, ex: "Mais vendido" (opcional)
-       emoji       -> um emoji que representa o produto
-       link        -> SEU LINK DE AFILIADO AQUI
-
-  2) Para trocar o nome/textos do topo, procure a seção "HERO"
-     no HTML logo abaixo do <body>.
-
-  3) Depois de editar, salve o arquivo e reabra no navegador —
-     não precisa de nenhum programa especial.
-  ================================================================
--->
-
+<title>Vitrine Digital — Ofertas com curadoria</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg-0: #060a14;
-    --bg-1: #0d1526;
-    --bg-2: #121b32;
-    --glass: rgba(140, 170, 255, 0.06);
-    --glass-border: rgba(160, 190, 255, 0.14);
-    --indigo: #4c6fff;
-    --indigo-light: #8aa3ff;
-    --indigo-deep: #1c2f6b;
-    --gold: #e8c57a;
-    --text: #edf1fa;
-    --text-muted: #90a0c4;
-    --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
-    --font-body: 'Inter', 'Segoe UI', sans-serif;
+    --navy-950:#080B14;
+    --navy-900:#0E1424;
+    --navy-800:#151D33;
+    --indigo-500:#4C5FEA;
+    --indigo-600:#3D4ED9;
+    --indigo-100:#E7E9FC;
+    --red-600:#E11D2E;
+    --yellow-400:#FFD60A;
+    --bg-page:#F3F5FA;
+    --card-bg:#FFFFFF;
+    --text-900:#12131A;
+    --text-600:#565B6B;
+    --text-400:#8A8FA3;
+    --border:#E7E9F2;
+    --radius:16px;
   }
-
-  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
-
-  *{ box-sizing: border-box; }
-
-  html{ scroll-behavior: smooth; }
-
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
   body{
     margin:0;
-    background: var(--bg-0);
-    color: var(--text);
-    font-family: var(--font-body);
-    line-height: 1.5;
-    overflow-x: hidden;
+    background:var(--bg-page);
+    color:var(--text-900);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
   }
+  h1,h2,h3,.logo,.brandfont{font-family:'Space Grotesk',sans-serif;}
+  a{text-decoration:none;color:inherit;}
+  button{font-family:inherit;cursor:pointer;border:none;}
+  img{max-width:100%;display:block;}
 
-  a{ color: inherit; text-decoration: none; }
-
-  /* ---------- fundo com "vidraça" de vitrine ---------- */
-  .window-grid{
-    position: fixed;
-    inset: 0;
-    z-index: -2;
-    background:
-      linear-gradient(var(--glass-border) 1px, transparent 1px) 0 0/64px 64px,
-      linear-gradient(90deg, var(--glass-border) 1px, transparent 1px) 0 0/64px 64px,
-      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(76,111,255,0.25), transparent),
-      var(--bg-0);
-    opacity: 0.5;
+  /* ---------- NAVBAR ---------- */
+  .topbar{
+    background:var(--navy-950);
+    position:sticky; top:0; z-index:50;
+    border-bottom:1px solid rgba(255,255,255,.06);
   }
-
-  .glow{
-    position: fixed;
-    z-index: -1;
-    width: 600px; height: 600px;
-    border-radius: 50%;
-    filter: blur(120px);
-    background: radial-gradient(circle, rgba(76,111,255,0.35), transparent 70%);
-    top: -200px; left: -150px;
-    pointer-events: none;
+  .topbar-inner{
+    max-width:1280px;margin:0 auto;padding:16px 24px;
+    display:flex;align-items:center;gap:24px;flex-wrap:wrap;
   }
-
-  /* ---------- header ---------- */
-  header{
-    position: sticky; top:0; z-index: 50;
-    display:flex; align-items:center; justify-content:space-between;
-    padding: 18px 6vw;
-    background: rgba(6,10,20,0.7);
-    backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--glass-border);
-  }
-
   .logo{
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 1.3rem;
-    letter-spacing: 0.5px;
-    display:flex; align-items:center; gap:10px;
+    display:flex;align-items:center;gap:10px;
+    color:#fff;font-weight:700;font-size:20px;letter-spacing:-0.02em;
+    flex-shrink:0;
   }
-  .logo .pane{
-    width: 14px; height: 22px;
-    border: 1.5px solid var(--indigo-light);
-    border-radius: 2px;
-    display:inline-block;
-    box-shadow: 0 0 12px rgba(138,163,255,0.6);
+  .logo-mark{
+    width:34px;height:34px;border-radius:9px;
+    background:linear-gradient(135deg,var(--indigo-500),#7B8CFF);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 0 0 3px rgba(76,95,234,.18);
+    position:relative;overflow:hidden;
   }
+  .logo-mark::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.55) 50%,transparent 60%);
+    transform:translateX(-100%);
+    animation:shine 5s ease-in-out infinite;
+  }
+  @keyframes shine{ 0%,80%{transform:translateX(-120%);} 100%{transform:translateX(120%);} }
+  .logo-mark svg{width:18px;height:18px;position:relative;z-index:1;}
 
-  nav.cats{
-    display:flex; gap: 22px;
-    font-size: 0.92rem;
-    color: var(--text-muted);
+  .search-wrap{flex:1;min-width:220px;position:relative;}
+  .search-wrap input{
+    width:100%;padding:11px 16px 11px 40px;border-radius:999px;
+    border:1px solid rgba(255,255,255,.1);
+    background:var(--navy-900);color:#fff;font-size:14px;
   }
-  nav.cats span{ cursor:pointer; transition: color .2s; }
-  nav.cats span:hover, nav.cats span.active{ color: var(--indigo-light); }
+  .search-wrap input::placeholder{color:#767c92;}
+  .search-wrap input:focus{outline:2px solid var(--indigo-500);outline-offset:1px;}
+  .search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:16px;height:16px;stroke:#767c92;}
 
-  /* ---------- hero ---------- */
+  .cats-nav{
+    display:flex;gap:8px;overflow-x:auto;padding-bottom:2px;
+    scrollbar-width:none;
+  }
+  .cats-nav::-webkit-scrollbar{display:none;}
+  .cat-pill{
+    white-space:nowrap;padding:9px 18px;border-radius:999px;
+    background:var(--navy-900);color:#c7cadb;font-size:13.5px;font-weight:600;
+    border:1px solid rgba(255,255,255,.06);
+    transition:.15s ease;
+  }
+  .cat-pill:hover{background:var(--navy-800);}
+  .cat-pill.active{background:var(--indigo-500);color:#fff;box-shadow:0 0 0 3px rgba(76,95,234,.25);}
+  .cat-pill.deal{background:transparent;border:1px solid var(--yellow-400);color:var(--yellow-400);}
+  .cat-pill.deal.active{background:var(--yellow-400);color:#241d00;}
+
+  /* ---------- HERO ---------- */
   .hero{
-    padding: 9vh 6vw 6vh;
-    text-align: left;
-    max-width: 900px;
+    background:var(--navy-950);
+    color:#fff;padding:64px 24px 88px;
+    position:relative;overflow:hidden;
   }
-  .hero .eyebrow{
-    color: var(--gold);
-    font-size: 0.85rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-    display:block;
-  }
-  .hero h1{
-    font-family: var(--font-display);
-    font-size: clamp(2.4rem, 6vw, 4.2rem);
-    line-height: 1.05;
-    margin: 0 0 20px;
-    font-weight: 700;
-  }
-  .hero h1 em{
-    font-style: normal;
-    background: linear-gradient(100deg, var(--indigo-light), var(--gold));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-  .hero p{
-    color: var(--text-muted);
-    font-size: 1.05rem;
-    max-width: 560px;
-    margin-bottom: 32px;
-  }
-  .hero .cta{
-    display:inline-flex; align-items:center; gap:10px;
-    background: var(--indigo);
-    color: #fff;
-    padding: 13px 26px;
-    border-radius: 999px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    box-shadow: 0 8px 30px rgba(76,111,255,0.35);
-    transition: transform .2s ease, box-shadow .2s ease;
-  }
-  .hero .cta:hover{ transform: translateY(-2px); box-shadow: 0 12px 34px rgba(76,111,255,0.5); }
-
-  /* ---------- barra de busca / filtro ---------- */
-  .toolbar{
-    display:flex; flex-wrap:wrap; gap:14px; align-items:center;
-    padding: 0 6vw 30px;
-  }
-  .toolbar input{
-    flex:1; min-width: 220px;
-    background: var(--glass);
-    border: 1px solid var(--glass-border);
-    color: var(--text);
-    padding: 12px 16px;
-    border-radius: 12px;
-    font-family: var(--font-body);
-    font-size: 0.95rem;
-  }
-  .toolbar input::placeholder{ color: var(--text-muted); }
-  .chip{
-    padding: 9px 16px;
-    border-radius: 999px;
-    border: 1px solid var(--glass-border);
-    background: var(--glass);
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: all .2s ease;
-  }
-  .chip.active, .chip:hover{
-    color: var(--bg-0);
-    background: var(--indigo-light);
-    border-color: var(--indigo-light);
-  }
-
-  /* ---------- vitrine (grid de produtos) ---------- */
-  .vitrine{
-    padding: 0 6vw 10vh;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 22px;
-  }
-
-  .card{
-    position: relative;
-    background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
-    border: 1px solid var(--glass-border);
-    border-radius: 18px;
-    padding: 22px;
-    display:flex; flex-direction:column;
-    overflow: hidden;
-    transition: transform .25s ease, border-color .25s ease;
-  }
-  .card::before{
-    content:"";
-    position:absolute; inset:0;
-    background: linear-gradient(140deg, rgba(255,255,255,0.06), transparent 40%);
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(600px 300px at 85% 10%, rgba(76,95,234,.35), transparent 60%),
+      radial-gradient(500px 260px at 10% 90%, rgba(76,95,234,.18), transparent 60%);
     pointer-events:none;
   }
-  .card:hover{
-    transform: translateY(-6px);
-    border-color: var(--indigo-light);
+  .hero-inner{max-width:1280px;margin:0 auto;position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(76,95,234,.15);border:1px solid rgba(76,95,234,.4);
+    color:#B7C0FF;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    padding:7px 14px;border-radius:999px;margin-bottom:20px;
   }
-  .card .badge{
-    position:absolute; top:16px; right:16px;
-    background: rgba(232,197,122,0.15);
-    color: var(--gold);
-    font-size: 0.7rem;
-    padding: 4px 10px;
-    border-radius: 999px;
-    border: 1px solid rgba(232,197,122,0.35);
+  .eyebrow span.dot{width:6px;height:6px;border-radius:50%;background:var(--yellow-400);}
+  .hero h1{font-size:44px;line-height:1.08;margin:0 0 18px;letter-spacing:-0.02em;}
+  .hero h1 em{font-style:normal;color:#8FA0FF;}
+  .hero p{color:#AEB3C6;font-size:16.5px;line-height:1.6;max-width:520px;margin:0 0 28px;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--indigo-500);color:#fff;padding:14px 26px;border-radius:12px;
+    font-weight:700;font-size:14.5px;transition:.15s;
+    display:inline-flex;align-items:center;gap:8px;
   }
-  .card .foto{
-    width: 100%;
-    height: 150px;
-    margin-bottom: 16px;
-    border-radius: 12px;
-    overflow: hidden;
-    background: #fff;
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  .btn-primary:hover{background:var(--indigo-600);transform:translateY(-1px);}
+  .btn-ghost{
+    border:1px solid rgba(255,255,255,.18);color:#fff;padding:14px 24px;border-radius:12px;
+    font-weight:600;font-size:14.5px;
   }
-  .card .foto img{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
+  .btn-ghost:hover{background:rgba(255,255,255,.06);}
+
+  .hero-stats{display:flex;gap:28px;margin-top:36px;flex-wrap:wrap;}
+  .hero-stat b{display:block;font-size:24px;font-family:'Space Grotesk',sans-serif;color:#fff;}
+  .hero-stat span{font-size:12.5px;color:#8B90A6;}
+
+  /* Vitrine visual signature: glass showcase panel */
+  .showcase{
+    position:relative;border-radius:24px;
+    background:linear-gradient(160deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
+    border:1px solid rgba(255,255,255,.12);
+    padding:22px;backdrop-filter:blur(6px);
+    box-shadow:0 30px 60px -20px rgba(0,0,0,.5);
+  }
+  .showcase::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:60%;border-radius:24px 24px 0 0;
+    background:linear-gradient(180deg,rgba(255,255,255,.10),transparent);
+    pointer-events:none;
+  }
+  .showcase-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;position:relative;}
+  .showcase-card{
+    background:#fff;border-radius:14px;padding:12px;color:#12131A;
+    transform:translateY(0);transition:.25s;
+  }
+  .showcase-card:hover{transform:translateY(-4px);}
+  .showcase-card img{border-radius:10px;height:90px;object-fit:cover;width:100%;margin-bottom:8px;}
+  .showcase-card .tag{font-size:10.5px;color:var(--text-400);font-weight:700;text-transform:uppercase;letter-spacing:.04em;}
+  .showcase-card .price{font-size:14px;font-weight:800;color:var(--red-600);margin-top:4px;}
+  .showcase-badge{
+    position:absolute;top:-14px;right:14px;background:var(--yellow-400);color:#241d00;
+    font-size:12px;font-weight:800;padding:8px 14px;border-radius:10px;
+    box-shadow:0 8px 18px rgba(255,214,10,.35);
+    display:flex;align-items:center;gap:6px;
   }
 
-  .card .icon{
-    width: 64px; height: 64px;
-    display:flex; align-items:center; justify-content:center;
-    font-size: 2rem;
-    margin-bottom: 16px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.10), rgba(76,111,255,0.08) 60%, transparent 100%);
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.06);
+  /* ---------- LAYOUT / FILTERS ---------- */
+  .layout{max-width:1280px;margin:0 auto;padding:40px 24px 100px;display:grid;grid-template-columns:260px 1fr;gap:32px;align-items:start;}
+  .filters{
+    background:#fff;border:1px solid var(--border);border-radius:var(--radius);
+    padding:22px;position:sticky;top:100px;
   }
-  .card .cat{
-    font-size: 0.72rem;
-    color: var(--indigo-light);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 6px;
+  .filters h3{margin:0 0 18px;font-size:17px;}
+  .filter-group{margin-bottom:22px;}
+  .filter-group label{font-size:12.5px;font-weight:700;color:var(--text-600);text-transform:uppercase;letter-spacing:.04em;display:block;margin-bottom:12px;}
+  .price-values{display:flex;justify-content:space-between;font-size:13px;color:var(--text-600);margin-bottom:8px;}
+  .price-values b{color:var(--text-900);}
+  .range-track{position:relative;height:26px;margin-bottom:10px;}
+  .range-track input[type=range]{
+    position:absolute;width:100%;top:8px;margin:0;pointer-events:none;
+    -webkit-appearance:none;background:transparent;
   }
-  .card h3{
-    font-family: var(--font-display);
-    font-size: 1.08rem;
-    margin: 0 0 10px;
+  .range-track input[type=range]::-webkit-slider-thumb{
+    pointer-events:auto;-webkit-appearance:none;width:16px;height:16px;border-radius:50%;
+    background:var(--red-600);border:3px solid #fff;box-shadow:0 0 0 1px var(--red-600);cursor:pointer;
   }
-  .card .price{
-    color: var(--text);
-    font-weight: 600;
-    font-size: 1.05rem;
-    margin-top: auto;
-    margin-bottom: 14px;
+  .range-track input[type=range]::-moz-range-thumb{
+    pointer-events:auto;width:16px;height:16px;border-radius:50%;
+    background:var(--red-600);border:3px solid #fff;box-shadow:0 0 0 1px var(--red-600);cursor:pointer;
   }
-  .card .price small{ color: var(--text-muted); font-weight: 400; }
-  .card a.btn{
-    display:flex; align-items:center; justify-content:center; gap:8px;
-    background: var(--indigo);
-    color:#fff;
-    padding: 11px;
-    border-radius: 10px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: background .2s ease;
+  .range-track .rail{position:absolute;top:11px;left:0;right:0;height:4px;background:var(--border);border-radius:4px;}
+  .range-track .rail-fill{position:absolute;top:11px;height:4px;background:var(--red-600);border-radius:4px;}
+  .price-inputs{display:flex;gap:10px;}
+  .price-inputs input{
+    width:100%;padding:9px 10px;border-radius:8px;border:1px solid var(--border);font-size:13px;color:var(--text-900);
   }
-  .card a.btn:hover{ background: var(--indigo-light); color: var(--bg-0); }
+  .price-inputs input:focus{outline:2px solid var(--indigo-500);}
+  .chip-row{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{
+    padding:7px 12px;border-radius:8px;border:1px solid var(--border);font-size:12.5px;font-weight:600;color:var(--text-600);
+    background:#fafbfd;
+  }
+  .chip.active{background:var(--indigo-100);border-color:var(--indigo-500);color:var(--indigo-600);}
+  .chip input{display:none;}
+  .clear-filters{width:100%;padding:10px;border-radius:10px;background:var(--navy-950);color:#fff;font-weight:700;font-size:13px;margin-top:6px;}
+  .clear-filters:hover{background:var(--navy-800);}
 
-  .empty{
-    grid-column: 1 / -1;
-    text-align:center;
-    padding: 60px 20px;
-    color: var(--text-muted);
+  /* ---------- PRODUCT GRID ---------- */
+  .grid-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px;flex-wrap:wrap;gap:10px;}
+  .grid-head h2{margin:0;font-size:22px;}
+  .grid-count{color:var(--text-400);font-size:13.5px;}
+  .sort-select{padding:9px 12px;border-radius:8px;border:1px solid var(--border);font-size:13px;background:#fff;color:var(--text-600);}
+
+  .product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;}
+  .card{
+    background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);
+    overflow:hidden;display:flex;flex-direction:column;position:relative;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .card:hover{transform:translateY(-5px);box-shadow:0 18px 34px -18px rgba(20,25,50,.28);}
+  .card-media{position:relative;aspect-ratio:1/1;overflow:hidden;background:#EEF1F8;}
+  .card-media::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(115deg,transparent 45%, rgba(255,255,255,.35) 50%, transparent 55%);
+    transform:translateX(-120%);
+  }
+  .card:hover .card-media::after{animation:glass-sheen .8s ease;}
+  @keyframes glass-sheen{to{transform:translateX(120%);}}
+  .card-media img{width:100%;height:100%;object-fit:cover;}
+  .badge-discount{
+    position:absolute;top:10px;right:10px;background:var(--red-600);color:#fff;
+    font-size:12px;font-weight:800;padding:5px 10px;border-radius:999px;
+  }
+  .badge-deal{
+    position:absolute;top:10px;left:10px;background:var(--yellow-400);color:#241d00;
+    font-size:11px;font-weight:800;padding:5px 9px;border-radius:999px;text-transform:uppercase;letter-spacing:.03em;
+  }
+  .card-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1;}
+  .card-eyebrow{font-size:11px;font-weight:800;color:var(--text-400);text-transform:uppercase;letter-spacing:.05em;}
+  .card-title{font-size:15.5px;font-weight:700;line-height:1.3;margin:0 0 2px;font-family:'Space Grotesk',sans-serif;}
+  .card-desc{font-size:12.8px;color:var(--text-600);line-height:1.5;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:6px;}
+  .card-price-row{margin-top:auto;padding-top:6px;}
+  .old-price{font-size:12.5px;color:var(--text-400);text-decoration:line-through;}
+  .new-price{font-size:20px;font-weight:800;color:var(--red-600);font-family:'Space Grotesk',sans-serif;}
+  .card-btn{
+    margin-top:12px;width:100%;padding:11px;border-radius:10px;background:var(--navy-950);color:#fff;
+    font-weight:700;font-size:13.5px;text-align:center;transition:.15s;
+  }
+  .card-btn:hover{background:var(--indigo-500);}
+
+  .empty-state{
+    grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-400);
   }
 
-  footer{
-    padding: 40px 6vw 60px;
-    border-top: 1px solid var(--glass-border);
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  /* ---------- MODAL ---------- */
+  .modal-overlay{
+    position:fixed;inset:0;background:rgba(8,11,20,.6);backdrop-filter:blur(3px);
+    display:none;align-items:center;justify-content:center;z-index:100;padding:20px;
   }
+  .modal-overlay.open{display:flex;}
+  .modal{
+    background:#fff;border-radius:20px;max-width:880px;width:100%;max-height:88vh;overflow-y:auto;
+    display:grid;grid-template-columns:.9fr 1.1fr;position:relative;
+  }
+  @media (max-width:720px){.modal{grid-template-columns:1fr;}}
+  .modal-close{
+    position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;
+    background:#fff;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;z-index:2;
+  }
+  .modal-media{background:#EEF1F8;padding:0;}
+  .modal-media img{width:100%;height:100%;object-fit:cover;min-height:260px;}
+  .modal-body{padding:32px;}
+  .modal-eyebrow{font-size:12px;font-weight:800;color:var(--text-400);text-transform:uppercase;letter-spacing:.05em;}
+  .modal-title{font-size:26px;margin:6px 0 10px;font-family:'Space Grotesk',sans-serif;line-height:1.15;}
+  .modal-tagline{color:var(--indigo-500);font-weight:600;font-size:14px;margin-bottom:14px;}
+  .modal-old{font-size:14px;color:var(--text-400);text-decoration:line-through;}
+  .modal-price{font-size:30px;font-weight:800;color:var(--red-600);font-family:'Space Grotesk',sans-serif;margin-bottom:20px;}
+  .spec-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:22px;}
+  .spec{background:#F7F8FC;border:1px solid var(--border);border-radius:12px;padding:12px 14px;display:flex;gap:10px;align-items:flex-start;}
+  .spec svg{width:18px;height:18px;flex-shrink:0;margin-top:2px;stroke:var(--indigo-500);}
+  .spec .s-label{font-size:10.5px;font-weight:800;color:var(--text-400);text-transform:uppercase;letter-spacing:.04em;}
+  .spec .s-value{font-size:13.5px;font-weight:600;color:var(--text-900);}
+  .modal-cta{
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    background:var(--indigo-500);color:#fff;padding:15px;border-radius:12px;font-weight:700;font-size:15px;width:100%;
+  }
+  .modal-cta:hover{background:var(--indigo-600);}
+  .modal-disclaimer{font-size:11.5px;color:var(--text-400);margin-top:12px;text-align:center;line-height:1.5;}
 
-  @media (max-width: 640px){
-    nav.cats{ display:none; }
-    header{ padding: 16px 5vw; }
-    .hero{ padding: 7vh 5vw 4vh; }
-    .vitrine{ padding: 0 5vw 8vh; }
-    .toolbar{ padding: 0 5vw 24px; }
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--navy-950);color:#AEB3C6;padding:48px 24px 30px;margin-top:20px;}
+  .footer-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px;}
+  .footer-inner h4{color:#fff;font-size:14px;margin:0 0 14px;}
+  .footer-inner p{font-size:13px;line-height:1.7;max-width:420px;color:#8B90A6;}
+  .footer-inner a{font-size:13.5px;display:block;margin-bottom:10px;color:#AEB3C6;}
+  .footer-inner a:hover{color:#fff;}
+  .footer-bottom{max-width:1280px;margin:36px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);font-size:12px;color:#666C82;}
+
+  @media (max-width:900px){
+    .layout{grid-template-columns:1fr;}
+    .filters{position:static;}
+    .hero-inner{grid-template-columns:1fr;}
+    .hero h1{font-size:32px;}
+    .showcase{order:-1;}
   }
 </style>
 </head>
 <body>
 
-<div class="window-grid"></div>
-<div class="glow"></div>
-
-<header>
-  <div class="logo"><span class="pane"></span> Vitrine Digital</div>
-  <nav class="cats" id="navCats"></nav>
-</header>
-
-<!-- HERO -->
-<section class="hero">
-  <span class="eyebrow">Curadoria de ofertas</span>
-  <h1>Tudo em <em>uma vitrine</em>,<br>um clique de distância.</h1>
-  <p>Selecionamos produtos de várias categorias para você ver, comparar e comprar direto na loja parceira — sem enrolação, sem letra miúda.</p>
-  <a href="#vitrine" class="cta">Ver produtos ↓</a>
-</section>
-
-<div class="toolbar">
-  <input type="text" id="busca" placeholder="Buscar um produto...">
-  <div id="chips" style="display:flex; gap:10px; flex-wrap:wrap;"></div>
+<!-- ============ NAVBAR ============ -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="logo" href="#top">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 8L12 3L20 8V16L12 21L4 16V8Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/><path d="M4 8L12 13L20 8" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 13V21" stroke="#fff" stroke-width="1.6"/></svg>
+      </span>
+      Vitrine Digital
+    </a>
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke-width="2"/><path d="M21 21L16.65 16.65" stroke-width="2" stroke-linecap="round"/></svg>
+      <input id="searchInput" type="text" placeholder="Buscar um produto...">
+    </div>
+  </div>
+  <div class="topbar-inner" style="padding-top:0;">
+    <div class="cats-nav" id="catsNav"></div>
+  </div>
 </div>
 
-<section class="vitrine" id="vitrine"></section>
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow"><span class="dot"></span> Curadoria diária de ofertas</div>
+      <h1>Sua <em>vitrine</em> de ofertas, escolhidas a dedo.</h1>
+      <p>Reunimos os melhores descontos em eletrônicos, beleza, moda, tênis e casa — tudo em um só lugar, direto da fonte, sem enrolação.</p>
+      <div class="hero-ctas">
+        <a href="#catalogo" class="btn-primary">Ver ofertas de hoje →</a>
+        <a href="#comofunciona" class="btn-ghost">Como funciona</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><b id="statCount">0</b><span>produtos na vitrine</span></div>
+        <div class="hero-stat"><b>6</b><span>categorias</span></div>
+        <div class="hero-stat"><b>100%</b><span>links verificados</span></div>
+      </div>
+    </div>
+    <div class="showcase">
+      <div class="showcase-badge">🔥 Ofertas do dia</div>
+      <div class="showcase-grid" id="heroShowcase"></div>
+    </div>
+  </div>
+</section>
 
+<!-- ============ CATALOG ============ -->
+<div class="layout" id="catalogo">
+  <aside class="filters">
+    <h3>Filtros</h3>
+    <div class="filter-group">
+      <label>Preço</label>
+      <div class="price-values"><span>R$ <b id="minLabel">0</b></span><span>R$ <b id="maxLabel">0</b></span></div>
+      <div class="range-track">
+        <div class="rail"></div>
+        <div class="rail-fill" id="railFill"></div>
+        <input type="range" id="rangeMin">
+        <input type="range" id="rangeMax">
+      </div>
+      <div class="price-inputs">
+        <input type="number" id="inputMin" placeholder="Min">
+        <input type="number" id="inputMax" placeholder="Máximo">
+      </div>
+    </div>
+    <div class="filter-group">
+      <label>Somente ofertas</label>
+      <div class="chip-row">
+        <label class="chip" id="onlyDealChip"><input type="checkbox" id="onlyDeal"> ⚡ Com desconto</label>
+      </div>
+    </div>
+    <button class="clear-filters" id="clearFilters">Limpar filtros</button>
+  </aside>
+
+  <main>
+    <div class="grid-head">
+      <h2 id="catalogTitle">Todos os produtos</h2>
+      <div style="display:flex;align-items:center;gap:14px;">
+        <span class="grid-count" id="gridCount"></span>
+        <select class="sort-select" id="sortSelect">
+          <option value="relevance">Mais relevantes</option>
+          <option value="discount">Maior desconto</option>
+          <option value="price-asc">Menor preço</option>
+          <option value="price-desc">Maior preço</option>
+        </select>
+      </div>
+    </div>
+    <div class="product-grid" id="productGrid"></div>
+  </main>
+</div>
+
+<!-- ============ MODAL ============ -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="modal-close" id="modalClose">✕</button>
+    <div class="modal-media"><img id="modalImg" src="" alt=""></div>
+    <div class="modal-body">
+      <div class="modal-eyebrow" id="modalBrand"></div>
+      <h3 class="modal-title" id="modalTitle"></h3>
+      <div class="modal-tagline" id="modalTagline"></div>
+      <div class="modal-old" id="modalOld"></div>
+      <div class="modal-price" id="modalPrice"></div>
+      <div class="spec-grid" id="modalSpecs"></div>
+      <a class="modal-cta" id="modalCta" href="#" target="_blank" rel="nofollow sponsored noopener">Ver oferta →</a>
+      <p class="modal-disclaimer">Este é um link de afiliado: ao comprar por ele, a Vitrine Digital pode receber uma comissão, sem custo adicional para você.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
 <footer>
-  <span>Vitrine Digital — indicações selecionadas.</span>
-  <span>Os links desta página são de afiliado: ao comprar, podemos receber uma comissão, sem custo extra para você.</span>
+  <div class="footer-inner">
+    <div>
+      <h4 class="brandfont">Vitrine Digital</h4>
+      <p>Curamos ofertas reais de eletrônicos, beleza, moda, tênis e casa vindas de lojas parceiras. A Vitrine Digital participa de programas de afiliados e pode receber comissão por compras qualificadas feitas através dos nossos links, sem qualquer custo extra para você.</p>
+    </div>
+    <div>
+      <h4>Categorias</h4>
+      <a href="#" data-cat-link="Eletrônicos">Eletrônicos</a>
+      <a href="#" data-cat-link="Beleza Feminina">Beleza Feminina</a>
+      <a href="#" data-cat-link="Beleza Masculina">Beleza Masculina</a>
+      <a href="#" data-cat-link="Moda">Moda</a>
+      <a href="#" data-cat-link="Tênis Unissex">Tênis Unissex</a>
+      <a href="#" data-cat-link="Casa">Casa</a>
+    </div>
+    <div>
+      <h4>Vitrine Digital</h4>
+      <a href="#top">Início</a>
+      <a href="#catalogo">Ofertas</a>
+      <a href="#">Sobre nós</a>
+      <a href="#">Contato</a>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Vitrine Digital. Todos os preços e disponibilidade são de responsabilidade das lojas parceiras.</div>
 </footer>
 
 <script>
-/* =====================================================
-   PRODUTOS — edite/adicione itens aqui
-   Cada item precisa de: nome, categoria, preco, emoji, link
-   "selo" é opcional (pode remover a linha)
-===================================================== */
-const PRODUTOS = [
-  { nome: "Fone Bluetooth Over-ear", categoria: "Eletrônicos", preco: "R$ 189,90", selo: "Mais vendido", emoji: "🎧", imagem: "", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
-  { nome: "Smartwatch Esportivo", categoria: "Eletrônicos", preco: "R$ 249,00", emoji: "⌚", imagem: "", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
-  { nome: "Mini Projetor Portátil", categoria: "Eletrônicos", preco: "R$ 329,00", emoji: "📽️", imagem: "", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+/* =========================================================
+   ÍCONES (mini set reutilizável para as fichas de produto)
+========================================================= */
+const ICONS = {
+  tag:'<path d="M3 11V4a1 1 0 0 1 1-1h7l9 9-8 8-9-9Z"/><circle cx="7.5" cy="7.5" r="1.4"/>',
+  gender:'<circle cx="10" cy="14" r="5"/><path d="M17 3l-4.2 4.2M17 3h-4M17 3v4"/>',
+  leaf:'<path d="M4 20c8-1 14-6 15-15-9 1-14 7-15 15Z"/>',
+  drop:'<path d="M12 3s6 7 6 11a6 6 0 1 1-12 0c0-4 6-11 6-11Z"/>',
+  box:'<path d="M3 8l9-5 9 5-9 5-9-5Z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/>',
+  sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/>',
+  clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>',
+  target:'<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".7" fill="var(--indigo-500)"/>',
+  flower:'<circle cx="12" cy="12" r="3"/><path d="M12 2c2 2 2 5 0 7-2-2-2-5 0-7ZM12 22c2-2 2-5 0-7-2 2-2 5 0 7ZM2 12c2-2 5-2 7 0-2 2-5 2-7 0ZM22 12c-2-2-5-2-7 0 2 2 5 2 7 0Z"/>',
+  shirt:'<path d="M8 3 4 6l2 3 2-1v11h8V8l2 1 2-3-4-3-2 2h-4l-2-2Z"/>',
+  shoe:'<path d="M3 17h18v2H3zM3 17c0-3 2-4 4-5l3-4 4 1 5 3c1 .5 2 1.5 2 5H3Z"/>',
+  home:'<path d="M4 11 12 4l8 7"/><path d="M6 10v9h12v-9"/>',
+  cpu:'<rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M7 3v2M17 3v2M7 19v2M17 19v2M3 7h2M3 17h2M19 7h2M19 17h2"/>',
+  battery:'<rect x="2" y="8" width="16" height="8" rx="1.5"/><path d="M18 11v2M4 10h4M4 14h7"/>',
+  ruler:'<path d="M3 16 8 3l13 5-5 13-13-5Z"/><path d="M9.5 6.5 8 8M12 8l-1.5 1.5M14.5 9.5 13 11M17 11l-1.5 1.5"/>',
+  shield:'<path d="M12 3l7 3v6c0 5-3 7.5-7 9-4-1.5-7-4-7-9V6l7-3Z"/>'
+};
+function icon(name){ return `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${ICONS[name]||ICONS.tag}</svg>`; }
 
-  { nome: "Perfume Importado 100ml", categoria: "Beleza Feminina", preco: "R$ 159,90", selo: "Novidade", emoji: "🌸", imagem: "", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
-  { nome: "Petunia Perfume Feminino Eau De Toilette Olímpia 100Ml", categoria: "Beleza Feminina", preco: "R$ 65,11", selo: "Mais vendido", emoji: "🧴", imagem: "https://m.media-amazon.com/images/I/51rCxDd0SsL._AC_SX425_.jpg", link: "https://link.amazon/B07UawUqf" },
-  { nome: "Kit Skincare Facial", categoria: "Beleza Feminina", preco: "R$ 99,90", emoji: "🫧", imagem: "", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
-  { nome: "Kit Maquiagem Básico", categoria: "Beleza Feminina", preco: "R$ 89,90", emoji: "💄", imagem: "", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+/* =========================================================
+   CATEGORIAS
+========================================================= */
+const CATEGORIES = ["Todos","Eletrônicos","Beleza Feminina","Beleza Masculina","Moda","Tênis Unissex","Casa"];
 
-  { nome: "Azzaro Pour Homme Perfume Masculino Eau de Toilette", categoria: "Beleza Masculina", preco: "R$ 154,99", emoji: "🧴", imagem: "https://m.media-amazon.com/images/I/81yBWXtSGFL._AC_SX679_.jpg", link: "https://link.amazon/B04ZWR4SA" },
-  { nome: "Kit Skincare Facial Masculino", categoria: "Beleza Masculina", preco: "R$ 94,90", emoji: "🧼", imagem: "", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
-  { nome: "Kit Barba Completo", categoria: "Beleza Masculina", preco: "R$ 79,90", emoji: "🪒", imagem: "", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
-
-  { nome: "Bolsa Transversal", categoria: "Moda", preco: "R$ 129,90", emoji: "👜", imagem: "", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
-  { nome: "Óculos de Sol Polarizado", categoria: "Moda", preco: "R$ 79,90", emoji: "🕶️", imagem: "", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
-
-  { nome: "Tênis Casual Unissex", categoria: "Tênis Unissex", preco: "R$ 219,90", selo: "Promoção", emoji: "👟", imagem: "", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
-  { nome: "Tênis Esportivo Unissex", categoria: "Tênis Unissex", preco: "R$ 189,90", emoji: "👟", imagem: "", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
-
-  { nome: "Luminária de Mesa LED", categoria: "Casa", preco: "R$ 79,90", emoji: "💡", imagem: "", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
-  { nome: "Organizador de Armário", categoria: "Casa", preco: "R$ 59,90", emoji: "🗄️", imagem: "", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
-  { nome: "Garrafa Térmica Inox", categoria: "Casa", preco: "R$ 69,90", emoji: "🥤", imagem: "", link: "https://SEU-LINK-DE-AFILIADO-AQUI.com" },
+/* =========================================================
+   PRODUTOS — troque "link" pelo seu link de afiliado
+   e "img" pela URL real da imagem do produto.
+========================================================= */
+const PRODUCTS = [
+  {
+    id:1, cat:"Beleza Masculina", brand:"AZZARO", name:"Azzaro Sport Eau de Toilette Masculino 100ml",
+    desc:"Perfume masculino fresco e energizante com toranja e sândalo que transmite vigor e dinamismo, ideal para o dia a dia e para a rotina de treino.",
+    tagline:"Frescor esportivo para encarar o dia com energia",
+    old:379.00, price:292.13,
+    img:"https://images.unsplash.com/photo-1594035910387-fea47794261f?w=600&q=80",
+    link:"https://exemplo-afiliado.com/azzaro-sport",
+    specs:[["tag","Marca","Azzaro"],["gender","Gênero","Masculino"],["leaf","Família olfativa","Fougère"],["drop","Concentração","Eau de Toilette"],["box","Volume","100 ml"],["sun","Estação indicada","Verão"],["clock","Fixação","4h"],["target","Projeção","Média"],["flower","Notas de saída","Toranja, notas cítricas"]]
+  },
+  {
+    id:2, cat:"Beleza Masculina", brand:"NAUTICA", name:"Nautica Voyage Eau de Toilette Masculino 50ml",
+    desc:"Fragrância masculina fresca e aquática com maçã e folhas verdes, transmitindo uma sensação de limpeza e frescor perfeita para o dia a dia.",
+    tagline:"Um clássico importado com ótimo custo-benefício",
+    old:139.00, price:99.00,
+    img:"https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=600&q=80",
+    link:"https://exemplo-afiliado.com/nautica-voyage",
+    specs:[["tag","Marca","Nautica"],["gender","Gênero","Masculino"],["leaf","Família olfativa","Aquática"],["drop","Concentração","Eau de Toilette"],["box","Volume","50 ml"],["sun","Estação indicada","Verão"],["clock","Fixação","3h"],["target","Projeção","Moderada"]]
+  },
+  {
+    id:3, cat:"Beleza Feminina", brand:"LUMIÈRE", name:"Lumière Femme Eau de Parfum 75ml",
+    desc:"Perfume feminino floral amadeirado com jasmim e baunilha, elegante e envolvente, perfeito para uso diário ou ocasiões especiais.",
+    tagline:"Elegância floral que acompanha o seu dia inteiro",
+    old:259.00, price:179.90,
+    img:"https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=600&q=80",
+    link:"https://exemplo-afiliado.com/lumiere-femme",
+    specs:[["tag","Marca","Lumière"],["gender","Gênero","Feminino"],["leaf","Família olfativa","Floral amadeirada"],["drop","Concentração","Eau de Parfum"],["box","Volume","75 ml"],["clock","Fixação","6h"]]
+  },
+  {
+    id:4, cat:"Beleza Feminina", brand:"NUANCE", name:"Kit Skincare Nuance Hidratação Facial",
+    desc:"Kit com sérum de vitamina C, hidratante facial e água micelar, formulado para peles sensíveis com resultado visível em poucas semanas.",
+    tagline:"Rotina completa em 3 passos para a sua pele",
+    old:189.00, price:129.00,
+    img:"https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&q=80",
+    link:"https://exemplo-afiliado.com/kit-nuance",
+    specs:[["tag","Marca","Nuance"],["box","Itens no kit","3 produtos"],["drop","Tipo de pele","Todos os tipos"],["shield","Dermatologicamente testado","Sim"]]
+  },
+  {
+    id:5, cat:"Eletrônicos", brand:"SOUNDCORE", name:"Fone de Ouvido Bluetooth SoundCore Pro",
+    desc:"Fone sem fio com cancelamento ativo de ruído, até 30h de bateria e som equilibrado para quem não abre mão de qualidade no dia a dia.",
+    tagline:"Silêncio sob controle, música em primeiro plano",
+    old:349.90, price:219.90,
+    img:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80",
+    link:"https://exemplo-afiliado.com/soundcore-pro",
+    specs:[["tag","Marca","SoundCore"],["cpu","Tipo","In-ear TWS"],["battery","Bateria","30h com case"],["shield","Cancelamento de ruído","Ativo (ANC)"],["box","Conteúdo da caixa","Fone + case + cabo"]]
+  },
+  {
+    id:6, cat:"Eletrônicos", brand:"PULSEFIT", name:"Smartwatch PulseFit X3 com GPS",
+    desc:"Relógio inteligente com monitor cardíaco, GPS integrado, resistência à água e mais de 20 modos de treino para acompanhar sua rotina.",
+    tagline:"Seus treinos e sua saúde, no seu pulso",
+    old:599.00, price:399.00,
+    img:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80",
+    link:"https://exemplo-afiliado.com/pulsefit-x3",
+    specs:[["tag","Marca","PulseFit"],["cpu","Tela","AMOLED 1.4\""],["battery","Bateria","até 7 dias"],["shield","Resistência","5 ATM"],["target","Modos de treino","20+"]]
+  },
+  {
+    id:7, cat:"Eletrônicos", brand:"BOOMBAY", name:"Caixa de Som Bluetooth BoomBay 360",
+    desc:"Caixa de som portátil à prova d'água, com som 360° e graves potentes, ideal para levar para praia, piscina ou churrasco com os amigos.",
+    tagline:"Som que enche o ambiente, onde você estiver",
+    old:299.00, price:189.00,
+    img:"https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600&q=80",
+    link:"https://exemplo-afiliado.com/boombay-360",
+    specs:[["tag","Marca","BoomBay"],["battery","Bateria","12h de reprodução"],["shield","Resistência","IPX7"],["cpu","Conexão","Bluetooth 5.3"]]
+  },
+  {
+    id:8, cat:"Moda", brand:"URBAN LINE", name:"Jaqueta Jeans Urban Line Unissex",
+    desc:"Jaqueta jeans de algodão premium, corte reto e lavagem clara, uma peça coringa que combina com praticamente tudo no guarda-roupa.",
+    tagline:"Um clássico que nunca sai de moda",
+    old:249.90, price:169.90,
+    img:"https://images.unsplash.com/photo-1601333144130-8cbb312386b6?w=600&q=80",
+    link:"https://exemplo-afiliado.com/jaqueta-urban-line",
+    specs:[["shirt","Marca","Urban Line"],["gender","Gênero","Unissex"],["ruler","Tecido","Algodão 98% / Elastano 2%"],["box","Tamanhos","P ao GG"]]
+  },
+  {
+    id:9, cat:"Moda", brand:"HORIZON", name:"Óculos de Sol Horizon Polarizado",
+    desc:"Óculos de sol com lentes polarizadas UV400 e armação leve em acetato, proteção total com estilo para o dia a dia ou viagens.",
+    tagline:"Proteção UV400 com atitude",
+    old:189.00, price:119.00,
+    img:"https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&q=80",
+    link:"https://exemplo-afiliado.com/horizon-oculos",
+    specs:[["shield","Proteção","UV400"],["drop","Lentes","Polarizadas"],["box","Armação","Acetato"]]
+  },
+  {
+    id:10, cat:"Tênis Unissex", brand:"STRIDE", name:"Tênis Stride Runner Unissex",
+    desc:"Tênis de corrida leve com espuma de alta absorção de impacto e cabedal respirável, feito para acompanhar seus treinos e sua rotina.",
+    tagline:"Leveza e amortecimento em cada passada",
+    old:329.90, price:219.90,
+    img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80",
+    link:"https://exemplo-afiliado.com/stride-runner",
+    specs:[["shoe","Marca","Stride"],["gender","Gênero","Unissex"],["ruler","Numeração","34 ao 44"],["target","Indicado para","Corrida e caminhada"]]
+  },
+  {
+    id:11, cat:"Tênis Unissex", brand:"CITYWALK", name:"Tênis CityWalk Casual Unissex",
+    desc:"Tênis casual em couro sintético com solado emborrachado antiderrapante, ideal para o dia a dia, trabalho ou passeios com estilo.",
+    tagline:"Conforto casual para qualquer hora do dia",
+    old:229.90, price:154.90,
+    img:"https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&q=80",
+    link:"https://exemplo-afiliado.com/citywalk-casual",
+    specs:[["shoe","Marca","CityWalk"],["gender","Gênero","Unissex"],["ruler","Numeração","33 ao 43"],["box","Material","Couro sintético"]]
+  },
+  {
+    id:12, cat:"Casa", brand:"COOKPRO", name:"Air Fryer CookPro Digital 5L",
+    desc:"Fritadeira elétrica sem óleo com painel digital, 8 funções pré-programadas e capacidade para toda a família, prática de limpar e usar.",
+    tagline:"Sabor de frito, sem o óleo de sempre",
+    old:449.00, price:299.00,
+    img:"https://images.unsplash.com/photo-1648223862205-49f9dd77c66c?w=600&q=80",
+    link:"https://exemplo-afiliado.com/cookpro-airfryer",
+    specs:[["home","Marca","CookPro"],["box","Capacidade","5 litros"],["cpu","Painel","Digital touch"],["target","Funções","8 pré-programadas"]]
+  },
+  {
+    id:13, cat:"Casa", brand:"LUMAR", name:"Luminária de Mesa Lumar LED Touch",
+    desc:"Luminária de mesa com LED regulável por toque, 3 temperaturas de luz e carregamento USB, perfeita para o home office ou a cabeceira.",
+    tagline:"A luz certa para cada momento do seu dia",
+    old:129.90, price:79.90,
+    img:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&q=80",
+    link:"https://exemplo-afiliado.com/lumar-led",
+    specs:[["home","Marca","Lumar"],["cpu","Controle","Touch"],["battery","Energia","USB / recarregável"],["sun","Temperaturas de luz","3 modos"]]
+  },
+  {
+    id:14, cat:"Casa", brand:"NUVEM", name:"Jogo de Cama Nuvem 200 Fios Casal",
+    desc:"Jogo de cama 100% algodão com 200 fios, toque macio e caimento perfeito, disponível em tons neutros que combinam com qualquer decoração.",
+    tagline:"Noites mais macias, do jeito que você merece",
+    old:219.00, price:149.00,
+    img:"https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&q=80",
+    link:"https://exemplo-afiliado.com/jogo-cama-nuvem",
+    specs:[["home","Marca","Nuvem"],["ruler","Tecido","100% algodão, 200 fios"],["box","Tamanho","Casal"]]
+  }
 ];
 
-const vitrine = document.getElementById('vitrine');
-const chipsBox = document.getElementById('chips');
-const navCats = document.getElementById('navCats');
-const busca = document.getElementById('busca');
+/* =========================================================
+   ESTADO E RENDERIZAÇÃO
+========================================================= */
+const PRICES = PRODUCTS.map(p=>p.price);
+const PRICE_MIN = Math.floor(Math.min(...PRICES));
+const PRICE_MAX = Math.ceil(Math.max(...PRICES));
 
-const categorias = ["Todos", ...new Set(PRODUTOS.map(p => p.categoria))];
-let categoriaAtiva = "Todos";
+let state = { cat:"Todos", search:"", min:PRICE_MIN, max:PRICE_MAX, onlyDeal:false, sort:"relevance" };
 
-function renderChips(){
-  chipsBox.innerHTML = "";
-  navCats.innerHTML = "";
-  categorias.forEach(cat => {
-    const chip = document.createElement('div');
-    chip.className = "chip" + (cat === categoriaAtiva ? " active" : "");
-    chip.textContent = cat;
-    chip.onclick = () => { categoriaAtiva = cat; renderChips(); renderProdutos(); };
-    chipsBox.appendChild(chip);
+function discountPct(p){ return Math.round((1 - p.price/p.old)*100); }
+function money(v){ return v.toLocaleString('pt-BR',{minimumFractionDigits:2, maximumFractionDigits:2}); }
 
-    const navItem = document.createElement('span');
-    navItem.textContent = cat;
-    navItem.className = (cat === categoriaAtiva ? "active" : "");
-    navItem.onclick = () => { categoriaAtiva = cat; renderChips(); renderProdutos(); };
-    navCats.appendChild(navItem);
+/* --- categorias no header --- */
+const catsNav = document.getElementById('catsNav');
+CATEGORIES.forEach(c=>{
+  const el = document.createElement('button');
+  el.className = 'cat-pill' + (c==='Todos' ? ' active' : '');
+  el.textContent = c;
+  el.onclick = ()=>{ state.cat = c; syncCatPills(); render(); };
+  el.dataset.cat = c;
+  catsNav.appendChild(el);
+});
+// pill extra "Ofertas"
+const dealPill = document.createElement('button');
+dealPill.className = 'cat-pill deal';
+dealPill.textContent = '🔥 Ofertas';
+dealPill.onclick = ()=>{ state.onlyDeal = !state.onlyDeal; document.getElementById('onlyDeal').checked = state.onlyDeal; dealPill.classList.toggle('active', state.onlyDeal); syncDealChip(); render(); };
+catsNav.appendChild(dealPill);
+
+function syncCatPills(){
+  document.querySelectorAll('.cat-pill[data-cat]').forEach(el=>{
+    el.classList.toggle('active', el.dataset.cat === state.cat);
+  });
+  document.getElementById('catalogTitle').textContent = state.cat === "Todos" ? "Todos os produtos" : state.cat;
+}
+
+/* --- footer category links --- */
+document.querySelectorAll('[data-cat-link]').forEach(a=>{
+  a.addEventListener('click', e=>{
+    e.preventDefault();
+    state.cat = a.dataset.catLink; syncCatPills(); render();
+    document.getElementById('catalogo').scrollIntoView({behavior:'smooth'});
+  });
+});
+
+/* --- busca --- */
+document.getElementById('searchInput').addEventListener('input', e=>{ state.search = e.target.value.toLowerCase(); render(); });
+
+/* --- ordenação --- */
+document.getElementById('sortSelect').addEventListener('change', e=>{ state.sort = e.target.value; render(); });
+
+/* --- somente ofertas (chip da sidebar) --- */
+const onlyDealBox = document.getElementById('onlyDeal');
+onlyDealBox.addEventListener('change', e=>{ state.onlyDeal = e.target.checked; syncDealChip(); render(); });
+function syncDealChip(){
+  document.getElementById('onlyDealChip').classList.toggle('active', state.onlyDeal);
+  dealPill.classList.toggle('active', state.onlyDeal);
+}
+
+/* --- range de preço --- */
+const rangeMin = document.getElementById('rangeMin');
+const rangeMax = document.getElementById('rangeMax');
+const inputMin = document.getElementById('inputMin');
+const inputMax = document.getElementById('inputMax');
+[rangeMin,rangeMax].forEach(r=>{ r.min = PRICE_MIN; r.max = PRICE_MAX; });
+rangeMin.value = PRICE_MIN; rangeMax.value = PRICE_MAX;
+inputMin.value = PRICE_MIN; inputMax.value = PRICE_MAX;
+
+function updateRailFill(){
+  const railFill = document.getElementById('railFill');
+  const pctMin = ((state.min - PRICE_MIN) / (PRICE_MAX - PRICE_MIN)) * 100;
+  const pctMax = ((state.max - PRICE_MIN) / (PRICE_MAX - PRICE_MIN)) * 100;
+  railFill.style.left = pctMin + '%';
+  railFill.style.width = Math.max(0, pctMax - pctMin) + '%';
+  document.getElementById('minLabel').textContent = money(state.min);
+  document.getElementById('maxLabel').textContent = money(state.max);
+}
+function applyPriceState(min,max){
+  state.min = Math.min(min,max); state.max = Math.max(min,max);
+  rangeMin.value = state.min; rangeMax.value = state.max;
+  inputMin.value = Math.round(state.min); inputMax.value = Math.round(state.max);
+  updateRailFill(); render();
+}
+rangeMin.addEventListener('input', ()=> applyPriceState(Number(rangeMin.value), Number(rangeMax.value)));
+rangeMax.addEventListener('input', ()=> applyPriceState(Number(rangeMin.value), Number(rangeMax.value)));
+inputMin.addEventListener('change', ()=> applyPriceState(Number(inputMin.value)||PRICE_MIN, state.max));
+inputMax.addEventListener('change', ()=> applyPriceState(state.min, Number(inputMax.value)||PRICE_MAX));
+
+/* --- limpar filtros --- */
+document.getElementById('clearFilters').addEventListener('click', ()=>{
+  state = { cat:"Todos", search:"", min:PRICE_MIN, max:PRICE_MAX, onlyDeal:false, sort:"relevance" };
+  document.getElementById('searchInput').value = '';
+  document.getElementById('sortSelect').value = 'relevance';
+  onlyDealBox.checked = false;
+  syncDealChip(); syncCatPills();
+  rangeMin.value = PRICE_MIN; rangeMax.value = PRICE_MAX;
+  inputMin.value = PRICE_MIN; inputMax.value = PRICE_MAX;
+  updateRailFill(); render();
+});
+
+/* --- render de card --- */
+function cardHTML(p){
+  const disc = discountPct(p);
+  return `
+  <div class="card" data-id="${p.id}">
+    <div class="card-media">
+      ${disc>0 ? `<span class="badge-discount">-${disc}%</span>` : ''}
+      <img src="${p.img}" alt="${p.name}" loading="lazy">
+    </div>
+    <div class="card-body">
+      <span class="card-eyebrow">${p.brand}</span>
+      <h3 class="card-title">${p.name}</h3>
+      <p class="card-desc">${p.desc}</p>
+      <div class="card-price-row">
+        <div class="old-price">R$ ${money(p.old)}</div>
+        <div class="new-price">R$ ${money(p.price)}</div>
+      </div>
+      <button class="card-btn" data-open="${p.id}">Ver detalhes</button>
+    </div>
+  </div>`;
+}
+
+function filteredSorted(){
+  let list = PRODUCTS.filter(p=>{
+    if(state.cat !== "Todos" && p.cat !== state.cat) return false;
+    if(state.search && !(p.name.toLowerCase().includes(state.search) || p.brand.toLowerCase().includes(state.search))) return false;
+    if(p.price < state.min || p.price > state.max) return false;
+    if(state.onlyDeal && discountPct(p) <= 0) return false;
+    return true;
+  });
+  if(state.sort === 'discount') list.sort((a,b)=>discountPct(b)-discountPct(a));
+  if(state.sort === 'price-asc') list.sort((a,b)=>a.price-b.price);
+  if(state.sort === 'price-desc') list.sort((a,b)=>b.price-a.price);
+  return list;
+}
+
+function render(){
+  const list = filteredSorted();
+  const grid = document.getElementById('productGrid');
+  grid.innerHTML = list.length ? list.map(cardHTML).join('') : `<div class="empty-state">Nenhum produto encontrado com esses filtros.<br>Tente ajustar a busca ou os filtros de preço.</div>`;
+  document.getElementById('gridCount').textContent = list.length + (list.length===1 ? ' produto' : ' produtos');
+  grid.querySelectorAll('[data-open]').forEach(btn=>{
+    btn.addEventListener('click', ()=> openModal(Number(btn.dataset.open)));
+  });
+  grid.querySelectorAll('.card-media img').forEach(img=>{
+    img.addEventListener('click', ()=> openModal(Number(img.closest('.card').dataset.id)));
   });
 }
 
-function renderProdutos(){
-  const termo = busca.value.trim().toLowerCase();
-  const lista = PRODUTOS.filter(p =>
-    (categoriaAtiva === "Todos" || p.categoria === categoriaAtiva) &&
-    p.nome.toLowerCase().includes(termo)
-  );
+/* --- modal --- */
+const overlay = document.getElementById('modalOverlay');
+function openModal(id){
+  const p = PRODUCTS.find(x=>x.id===id);
+  document.getElementById('modalImg').src = p.img;
+  document.getElementById('modalImg').alt = p.name;
+  document.getElementById('modalBrand').textContent = p.brand;
+  document.getElementById('modalTitle').textContent = p.name;
+  document.getElementById('modalTagline').textContent = p.tagline;
+  document.getElementById('modalOld').textContent = 'R$ ' + money(p.old);
+  document.getElementById('modalPrice').textContent = 'R$ ' + money(p.price);
+  document.getElementById('modalSpecs').innerHTML = p.specs.map(s=>`
+    <div class="spec">${icon(s[0])}<div><div class="s-label">${s[1]}</div><div class="s-value">${s[2]}</div></div></div>
+  `).join('');
+  document.getElementById('modalCta').href = p.link;
+  overlay.classList.add('open');
+}
+document.getElementById('modalClose').addEventListener('click', ()=> overlay.classList.remove('open'));
+overlay.addEventListener('click', e=>{ if(e.target===overlay) overlay.classList.remove('open'); });
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') overlay.classList.remove('open'); });
 
-  vitrine.innerHTML = "";
-  if(lista.length === 0){
-    vitrine.innerHTML = '<div class="empty">Nenhum produto encontrado com esse filtro.</div>';
-    return;
-  }
-
-  lista.forEach(p => {
-    const card = document.createElement('div');
-    card.className = "card";
-    card.innerHTML = `
-      ${p.selo ? `<span class="badge">${p.selo}</span>` : ""}
-      ${p.imagem ? `<div class="foto"><img src="${p.imagem}" alt="${p.nome}" loading="lazy"></div>` : `<div class="icon">${p.emoji}</div>`}
-      <div class="cat">${p.categoria}</div>
-      <h3>${p.nome}</h3>
-      <div class="price">${p.preco} <small>à vista</small></div>
-      <a class="btn" href="${p.link}" target="_blank" rel="noopener sponsored">Ver oferta →</a>
-    `;
-    vitrine.appendChild(card);
-  });
+/* --- vitrine (hero) com 4 destaques em oferta --- */
+function renderShowcase(){
+  const top = [...PRODUCTS].sort((a,b)=>discountPct(b)-discountPct(a)).slice(0,4);
+  document.getElementById('heroShowcase').innerHTML = top.map(p=>`
+    <div class="showcase-card">
+      <img src="${p.img}" alt="${p.name}">
+      <div class="tag">${p.brand}</div>
+      <div class="price">R$ ${money(p.price)}</div>
+    </div>
+  `).join('');
 }
 
-busca.addEventListener('input', renderProdutos);
-
-renderChips();
-renderProdutos();
+/* --- init --- */
+document.getElementById('statCount').textContent = PRODUCTS.length;
+updateRailFill();
+renderShowcase();
+render();
 </script>
-
 </body>
 </html>
