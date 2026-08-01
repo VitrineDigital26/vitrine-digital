@@ -489,9 +489,8 @@ prontos por categoria (perfume, eletrônico, moda, tênis, casa etc).
     specs:[["tag","Marca","Nome da marca"],["box","Característica","Valor"]]
   }
 */
-const PRODUCTS = [
+const PRODUCTS = [ 
 ];
-
 /* Exemplos antigos guardados aqui apenas como referência — não usados no site */
 const PRODUCTS_EXEMPLOS_REFERENCIA = [
   {
@@ -772,7 +771,7 @@ function cardHTML(p){
       <h3 class="card-title">${p.name}</h3>
       <p class="card-desc">${p.desc}</p>
       <div class="card-price-row">
-        <div class="old-price">R$ ${money(p.old)}</div>
+        ${p.old > p.price ? `<div class="old-price">R$ ${money(p.old)}</div>` : ''}
         <div class="new-price">R$ ${money(p.price)}</div>
       </div>
       <button class="card-btn" data-open="${p.id}">Ver detalhes</button>
@@ -816,7 +815,7 @@ function openModal(id){
   document.getElementById('modalBrand').textContent = p.brand;
   document.getElementById('modalTitle').textContent = p.name;
   document.getElementById('modalTagline').textContent = p.tagline;
-  document.getElementById('modalOld').textContent = 'R$ ' + money(p.old);
+  document.getElementById('modalOld').textContent = p.old > p.price ? ('R$ ' + money(p.old)) : '';
   document.getElementById('modalPrice').textContent = 'R$ ' + money(p.price);
   document.getElementById('modalSpecs').innerHTML = p.specs.map(s=>`
     <div class="spec">${icon(s[0])}<div><div class="s-label">${s[1]}</div><div class="s-value">${s[2]}</div></div></div>
