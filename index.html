@@ -422,12 +422,14 @@
     </div>
     <div>
       <h4>Categorias</h4>
-      <a href="#" data-cat-link="Eletrônicos">Eletrônicos</a>
-      <a href="#" data-cat-link="Beleza Feminina">Beleza Feminina</a>
-      <a href="#" data-cat-link="Beleza Masculina">Beleza Masculina</a>
-      <a href="#" data-cat-link="Moda">Moda</a>
-      <a href="#" data-cat-link="Tênis Unissex">Tênis Unissex</a>
-      <a href="#" data-cat-link="Casa">Casa</a>
+      <a href="#" data-cat-link="📱📺 Eletrônicos">📱📺 Eletrônicos</a>
+      <a href="#" data-cat-link="🌸 Perfume Feminino">🌸 Perfume Feminino</a>
+      <a href="#" data-cat-link="✨ Feminina">✨ Feminina</a>
+      <a href="#" data-cat-link="💎 Masculino">💎 Masculino</a>
+      <a href="#" data-cat-link="🧴 perfume masculino">🧴 perfume masculino</a>
+      <a href="#" data-cat-link="👟 Tênis Unissex">👟 Tênis Unissex</a>
+      <a href="#" data-cat-link="🎮 Console e Acessórios">🎮 Console e Acessórios</a>
+      <a href="#" data-cat-link="🏠 casa">🏠 casa</a>
     </div>
     <div>
       <h4>Vitrine Digital</h4>
@@ -467,7 +469,7 @@ function icon(name){ return `<svg viewBox="0 0 24 24" fill="none" stroke-width="
 /* =========================================================
    CATEGORIAS
 ========================================================= */
-const CATEGORIES = ["Todos","Eletrônicos","Beleza Feminina","Beleza Masculina","Moda","Tênis Unissex","Casa"];
+const CATEGORIES = ["Todos","📱📺 Eletrônicos","🌸 Perfume Feminino","✨ Feminina","💎 Masculino","🧴 perfume masculino","👟 Tênis Unissex","🎮 Console e Acessórios","🏠 casa"];
 
 /* =========================================================
    PRODUTOS — troque "link" pelo seu link de afiliado
@@ -491,11 +493,11 @@ prontos por categoria (perfume, eletrônico, moda, tênis, casa etc).
 */
 const PRODUCTS = [
   {
-    id:1, cat:"Beleza Masculina", brand:"Ferrari", name:"Ferrari Scuderia Black, Eau de Toilette, Masculino 125 ml",
+    id:1, cat:"🧴 perfume masculino", brand:"Ferrari", name:"Ferrari Scuderia Black Eau de Toilette Masculino 125ml",
     desc:"Perfume masculino esportivo e sofisticado, com fundo cítrico amadeirado que combina com qualquer momento do dia. Do trabalho ao encontro a dois, uma fragrância marcante que impõe presença sem perder a discrição.",
     tagline:"Elegância clássica em cada borrifada",
     old:169.00, price:169.00,
-    img:"https://m.media-amazon.com/images/I/81hwWVrUBuL._AC_SL1500_.jpg",
+    img:"https://m.media-amazon.com/images/I/81hWwVrUBuL._AC_SL1500_.jpg",
     link:"https://link.amazon/B0ae3frt7",
     specs:[
       ["tag","Marca","Ferrari"],
@@ -507,20 +509,21 @@ const PRODUCTS = [
     ]
   }
   ,{
-    id:2, cat:"Beleza Masculina", brand:"Calvin Klein", name:"Ckin2U Him De Calvin Klein Eau De Toilette Masculino 100 ml",
+    id:2, cat:"🧴 perfume masculino", brand:"Calvin Klein", name:"CK In2U Him Eau de Toilette Masculino 100ml",
     desc:"CK In2U Him é um perfume masculino fresco e aquático, criado pela Calvin Klein com um design de frasco moderno e minimalista. Ideal para o uso diário, traz uma fragrância leve e envolvente que combina discrição com atitude.",
     tagline:"Frescor moderno que define sua atitude",
     old:208.99, price:208.99,
     img:"https://m.media-amazon.com/images/I/615hs8QpdLL._AC_SL1000_.jpg",
-    link:"https://link.amazon/B09o4qD30",
+    link:"https://link.amazon.com/B09o4qD30",
     specs:[
       ["tag","Marca","Calvin Klein"],
       ["gender","Gênero","Masculino"],
       ["drop","Concentração","Eau de Toilette"],
       ["box","Volume","100 ml"]
-     ]
+    ]
   }
 ];
+
 /* Exemplos antigos guardados aqui apenas como referência — não usados no site */
 const PRODUCTS_EXEMPLOS_REFERENCIA = [
   {
