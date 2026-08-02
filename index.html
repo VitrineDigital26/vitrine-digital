@@ -42,7 +42,6 @@
   button{font-family:inherit;cursor:pointer;border:none;}
   img{max-width:100%;display:block;}
 
-  /* ---------- NAVBAR ---------- */
   .topbar{
     background:var(--navy-950);
     position:sticky; top:0; z-index:50;
@@ -96,7 +95,6 @@
   .cat-pill.deal{background:transparent;border:1px solid var(--yellow-400);color:var(--yellow-400);}
   .cat-pill.deal.active{background:var(--yellow-400);color:#241d00;}
 
-  /* ---------- HERO ---------- */
   .hero{
     background:
       radial-gradient(1100px 700px at 88% -10%, rgba(232,50,180,.55), transparent 55%),
@@ -153,7 +151,6 @@
   .hero-stat b{display:block;font-size:24px;font-family:'Space Grotesk',sans-serif;color:#fff;}
   .hero-stat span{font-size:12.5px;color:#8B90A6;}
 
-  /* Vitrine visual signature: glass showcase panel */
   .showcase{
     position:relative;border-radius:24px;
     background:linear-gradient(160deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
@@ -182,7 +179,6 @@
     display:flex;align-items:center;gap:6px;
   }
 
-  /* ---------- LAYOUT / FILTERS ---------- */
   .layout{max-width:1280px;margin:0 auto;padding:40px 24px 100px;display:grid;grid-template-columns:260px 1fr;gap:32px;align-items:start;}
   .filters{
     background:#fff;border:1px solid var(--border);border-radius:var(--radius);
@@ -223,7 +219,6 @@
   .clear-filters{width:100%;padding:10px;border-radius:10px;background:var(--navy-950);color:#fff;font-weight:700;font-size:13px;margin-top:6px;}
   .clear-filters:hover{background:var(--navy-800);}
 
-  /* ---------- PRODUCT GRID ---------- */
   .grid-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px;flex-wrap:wrap;gap:10px;}
   .grid-head h2{margin:0;font-size:22px;}
   .grid-count{color:var(--text-400);font-size:13.5px;}
@@ -270,7 +265,6 @@
     grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-400);
   }
 
-  /* ---------- MODAL ---------- */
   .modal-overlay{
     position:fixed;inset:0;background:rgba(8,11,20,.6);backdrop-filter:blur(3px);
     display:none;align-items:center;justify-content:center;z-index:100;padding:20px;
@@ -305,7 +299,6 @@
   .modal-cta:hover{background:var(--indigo-600);}
   .modal-disclaimer{font-size:11.5px;color:var(--text-400);margin-top:12px;text-align:center;line-height:1.5;}
 
-  /* ---------- FOOTER ---------- */
   footer{background:var(--navy-950);color:#AEB3C6;padding:48px 24px 30px;margin-top:20px;}
   .footer-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px;}
   .footer-inner h4{color:#fff;font-size:14px;margin:0 0 14px;}
@@ -334,12 +327,11 @@
 </head>
 <body>
 
-<!-- ============ NAVBAR ============ -->
 <div class="topbar">
   <div class="topbar-inner">
     <a class="logo" href="#top">
       <span class="logo-mark">
-        <img src="data:image/png;base64,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" alt="Vitrine Digital">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAADwCAYAAAA+VemSAABBb0lEQVR4nO19ecwkx3Xf71XPfLvL+1yR4imR4iHxJkVdjnzBsuDYRuzACOA4dhI7QmAgsRHnn9gJYiROghyIHcdBECdAbCfO4cSxZVmWSFOUeCxviqJIiSIpihKP5bW8ueTuN9P18kddr6qr5+qe+WZ26/dhvunpme6u6q5f/16960dfP69/hCTVQKrgY6ZE8vC1eqBnBcs14wKzrDDdRlnBcQZWkNIYVhrHKtAcJdkgVn7jHFvUeNGKD5s8DvvyJIkkdt3JLdSKI5Ycs2SbHXt83+rjZuz+wMOa4C+cWfoTATMFPB+bK3rV7O4=" alt="Vitrine Digital">
       </span>
       Vitrine Digital
     </a>
@@ -353,7 +345,6 @@
   </div>
 </div>
 
-<!-- ============ HERO ============ -->
 <section class="hero" id="top">
   <div class="hero-inner">
     <div>
@@ -377,7 +368,6 @@
   </div>
 </section>
 
-<!-- ============ CATALOG ============ -->
 <div class="layout" id="catalogo">
   <aside class="filters">
     <h3>Filtros</h3>
@@ -421,7 +411,6 @@
   </main>
 </div>
 
-<!-- ============ MODAL ============ -->
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal">
     <button class="modal-close" id="modalClose">✕</button>
@@ -439,7 +428,6 @@
   </div>
 </div>
 
-<!-- ============ FOOTER ============ -->
 <footer>
   <div class="footer-inner">
     <div>
@@ -469,9 +457,6 @@
 </footer>
 
 <script>
-/* =========================================================
-   ÍCONES (mini set reutilizável para as fichas de produto)
-========================================================= */
 const ICONS = {
   tag:'<path d="M3 11V4a1 1 0 0 1 1-1h7l9 9-8 8-9-9Z"/><circle cx="7.5" cy="7.5" r="1.4"/>',
   gender:'<circle cx="10" cy="14" r="5"/><path d="M17 3l-4.2 4.2M17 3h-4M17 3v4"/>',
@@ -490,33 +475,10 @@ const ICONS = {
   ruler:'<path d="M3 16 8 3l13 5-5 13-13-5Z"/><path d="M9.5 6.5 8 8M12 8l-1.5 1.5M14.5 9.5 13 11M17 11l-1.5 1.5"/>',
   shield:'<path d="M12 3l7 3v6c0 5-3 7.5-7 9-4-1.5-7-4-7-9V6l7-3Z"/>'
 };
-function icon(name){ return `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${ICONS[name]||ICONS.tag}</svg>`; }
+function icon(name){ return '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">' + (ICONS[name]||ICONS.tag) + '</svg>'; }
 
-/* =========================================================
-   CATEGORIAS
-========================================================= */
 const CATEGORIES = ["Todos","📱📺 Eletrônicos","🌸 Perfume Feminino","✨ Feminina","💎 Masculino","🧴 perfume masculino","👟 Tênis Unissex","🎮 Console e Acessórios","🏠 casa"];
 
-/* =========================================================
-   PRODUTOS — troque "link" pelo seu link de afiliado
-   e "img" pela URL real da imagem do produto.
-========================================================= */
-/*
-MODELO DE PRODUTO — copie o bloco abaixo (tirando as marcas de comentário)
-e cole dentro do array PRODUCTS logo abaixo, trocando os valores pelos do
-seu produto. Veja também o arquivo "banco-de-modelos.md" para modelos
-prontos por categoria (perfume, eletrônico, moda, tênis, casa etc).
-
-  {
-    id:1, cat:"Beleza Masculina", brand:"NOME DA MARCA", name:"Nome completo do produto",
-    desc:"Descrição do produto em 2-3 frases.",
-    tagline:"Frase curta de efeito",
-    old:199.90, price:129.90,
-    img:"LINK-DA-FOTO-DO-PRODUTO.jpg",
-    link:"SEU-LINK-DE-AFILIADO",
-    specs:[["tag","Marca","Nome da marca"],["box","Característica","Valor"]]
-  }
-*/
 const PRODUCTS = [
   {
     id: 1,cat: "📱📺 Eletrônicos",
@@ -575,7 +537,7 @@ const PRODUCTS = [
   {
   id: 4,cat: "🧴 perfume masculino",
   brand: "Paris Elysees",
-  name: "Perfume Importado Paris Elysees Billion $ Eau de Toilette Masculino 100ml",
+  name: "Perfume Importado Paris Elysees Billion Dollar Eau de Toilette Masculino 100ml",
   desc: "Fragrância masculina com aroma especiado, ideal para o uso diário e ocasiões especiais. Eau de Toilette importado com excelente custo-benefício e boa fixação.",
   tagline: "Elegância e personalidade por muito menos",
   old: 71.32,
@@ -881,178 +843,411 @@ const PRODUCTS = [
     ["leaf", "Notas de corpo", "Flor de pêssego"],
     ["box", "Notas de fundo", "Amadeiradas, âmbar, almíscar branco"]
   ]
+},
+{
+  id: 21, cat: "🌸 Perfume Feminino",
+  brand: "Amei Cosméticos",
+  name: "Perfume Sexy Amei Cosméticos 100ml",
+  desc: "Fragrância feminina floral envolvente e marcante, com alta fixação na pele. Ideal para encontros e ocasiões especiais, deixando presença por onde passar.",
+  tagline: "Sedução instantânea em cada borrifada",
+  old: 89.90,
+  price: 89.90,
+  img: "https://m.media-amazon.com/images/I/61--h78qbsL._AC_SL500_.jpg",
+  link: "https://www.amazon.com.br/dp/B0GVGKV2VK?tag=vitrinedi0119-20",
+  specs: [
+    ["tag", "Marca", "Amei Cosméticos"],
+    ["gender", "Gênero", "Feminino"],
+    ["drop", "Forma do produto", "Spray"],
+    ["box", "Volume", "100 ml"],
+    ["leaf", "Família Olfativa", "Floral"]
+  ]
+},
+{
+  id: 22, cat: "🌸 Perfume Feminino",
+  brand: "Paris Elysees",
+  name: "Perfume Importado Paris Elysees Sexy Woman Love Eau de Toilette Feminino 100ml",
+  desc: "Fragrância feminina leve e sofisticada, hipoalergênica e de longa duração. Perfume importado da linha Sexy Woman Love, ideal para o uso diário com frescor e elegância.",
+  tagline: "Frescor e elegância para o seu dia a dia",
+  old: 78.90,
+  price: 69.90,
+  img: "https://m.media-amazon.com/images/I/616f65Yl9eL._AC_SL500_.jpg",
+  link: "https://www.amazon.com.br/dp/B09M3LMH3L?tag=vitrinedi0119-20",
+  specs: [
+    ["tag", "Marca", "Paris Elysees"],
+    ["gender", "Gênero", "Feminino"],
+    ["drop", "Forma do produto", "Spray"],
+    ["box", "Volume", "100 ml"],
+    ["shield", "Especial", "Hipoalergênico e importado"]
+  ]
+},
+{
+  id: 23, cat: "🌸 Perfume Feminino",
+  brand: "Gabriela Sabatini",
+  name: "Gabriela Sabatini Eau de Toilette Feminino 60ml",
+  desc: "Fragrância feminina floral hipoalergênica, com notas de tangerina, néroli e flor de laranjeira. Um clássico atemporal com fundo de sândalo, âmbar e baunilha, elegante e acessível.",
+  tagline: "Um clássico floral que nunca sai de moda",
+  old: 169.00,
+  price: 87.29,
+  img: "https://m.media-amazon.com/images/I/618BXU7lCAL._AC_SL500_.jpg",
+  link: "https://www.amazon.com.br/dp/B071VCX893?tag=vitrinedi0119-20",
+  specs: [
+    ["tag", "Marca", "Gabriela Sabatini"],
+    ["gender", "Gênero", "Feminino"],
+    ["drop", "Concentração", "Eau de Toilette"],
+    ["box", "Volume", "60 ml"],
+    ["flower", "Notas de topo", "Tangerina, néroli, flor de laranjeira"],
+    ["leaf", "Notas de corpo", "Tuberosa, jasmim, lírio do vale"],
+    ["box", "Notas de fundo", "Sândalo, âmbar, baunilha"],
+    ["shield", "Especial", "Hipoalergênico"]
+  ]
+},
+{
+  id: 24, cat: "🌸 Perfume Feminino",
+  brand: "Lattafa",
+  name: "Lattafa Yara Tous Eau de Parfum Feminino 100ml",
+  desc: "Fragrância feminina sofisticada e intrigante, com alta fixação e longa duração. Composição com ingredientes de alta qualidade, testada dermatologicamente para uso diário.",
+  tagline: "Uma fragrância única que marca presença",
+  old: 178.76,
+  price: 178.76,
+  img: "https://m.media-amazon.com/images/I/71Ij8lVM1HL._AC_SL500_.jpg",
+  link: "https://www.amazon.com.br/dp/B0C8YRND5J?tag=vitrinedi0119-20",
+  specs: [
+    ["tag", "Marca", "Lattafa"],
+    ["gender", "Gênero", "Feminino"],
+    ["drop", "Forma do produto", "Aerossol"],
+    ["box", "Volume", "100 ml"],
+    ["shield", "Especial", "Alta fixação, testado dermatologicamente"]
+  ]
+},
+{
+  id: 25, cat: "🌸 Perfume Feminino",
+  brand: "Gabriela Sabatini",
+  name: "Miss Gabriela Night Eau de Toilette Feminino 30ml",
+  desc: "Fragrância feminina floral frutada, vibrante e alegre, com notas de pimenta rosa, framboesa, jasmim e peônia. Um perfume espirituoso e envolvente, com fundo de cedro e âmbar.",
+  tagline: "Vibrante, alegre e espirituosa em cada gesto",
+  old: 119.00,
+  price: 45.42,
+  img: "https://m.media-amazon.com/images/I/81GnQc9jA+L._AC_SL500_.jpg",
+  link: "https://www.amazon.com.br/dp/B00DATT1SA?tag=vitrinedi0119-20",
+  specs: [
+    ["tag", "Marca", "Gabriela Sabatini"],
+    ["gender", "Gênero", "Feminino"],
+    ["drop", "Concentração", "Eau de Toilette"],
+    ["box", "Volume", "30 ml"],
+    ["flower", "Notas de topo", "Pimenta rosa, framboesa"],
+    ["leaf", "Notas de corpo", "Jasmim, peônia, heliotrópio"],
+    ["box", "Notas de fundo", "Cedro, âmbar"]
+  ]
+},
+{
+  id: 26, cat: "🌸 Perfume Feminino",
+  brand: "Al Wataniah",
+  name: "Sabah Al Ward Eau de Parfum Feminino 100ml",
+  desc: "Fragrância feminina oriental floral, de longa duração e envolvente. Uma composição delicada e marcante, ideal para quem busca elegância no dia a dia com ótimo custo-benefício.",
+  tagline: "Elegância oriental que perdura o dia todo",
+  old: 156.62,
+  price: 118.74,
+  img: "https://m.media-amazon.com/images/I/61+vEY9aqiL._AC_SL500_.jpg",
+  link: "https://www.amazon.com.br/dp/B093ZM679D?tag=vitrinedi0119-20",
+  specs: [
+    ["tag", "Marca", "Al Wataniah"],
+    ["gender", "Gênero", "Feminino"],
+    ["drop", "Concentração", "Eau de Parfum"],
+    ["box", "Volume", "100 ml"],
+    ["leaf", "Família Olfativa", "Oriental Floral"],
+    ["shield", "Especial", "Longa duração"]
+  ]
+},
+{
+  id: 27, cat: "🌸 Perfume Feminino",
+  brand: "La Rive",
+  name: "La Rive Queen Of Life Eau de Parfum Feminino 75ml",
+  desc: "Fragrância feminina doce e alegre, com notas de bergamota, flor de laranjeira, flores brancas, sândalo e baunilha. Desenvolvida para mulheres elegantes e decididas, com excelente fixação.",
+  tagline: "Feminilidade e liberdade em cada frasco",
+  old: 109.90,
+  price: 77.90,
+  img: "https://m.media-amazon.com/images/I/51ol-7Iz7xL._AC_SL500_.jpg",
+  link: "https://www.amazon.com.br/dp/B00QXHVMLU?tag=vitrinedi0119-20",
+  specs: [
+    ["tag", "Marca", "La Rive"],
+    ["gender", "Gênero", "Feminino"],
+    ["drop", "Concentração", "Eau de Parfum"],
+    ["box", "Volume", "75 ml"],
+    ["flower", "Notas de topo", "Bergamota, flor de laranjeira, flores brancas"],
+    ["box", "Notas de fundo", "Sândalo, baunilha"]
+  ]
+},
+{
+  id: 28, cat: "🌸 Perfume Feminino",
+  brand: "La Rive",
+  name: "La Rive Her Choice For Women Eau de Parfum Feminino 100ml",
+  desc: "Fragrância floral e frutada que combina elegância e feminilidade, desenvolvida para mulheres livres e independentes que celebram a vida com estilo. Ótimo custo-benefício e embalagem de qualidade.",
+  tagline: "Estilo e personalidade em cada escolha",
+  old: 76.90,
+  price: 76.90,
+  img: "https://m.media-amazon.com/images/I/51JDbwNRakL._AC_SL500_.jpg",
+  link: "https://www.amazon.com.br/dp/B0CBQP363Z?tag=vitrinedi0119-20",
+  specs: [
+    ["tag", "Marca", "La Rive"],
+    ["gender", "Gênero", "Feminino"],
+    ["drop", "Concentração", "Eau de Parfum"],
+    ["box", "Volume", "100 ml"],
+    ["leaf", "Família Olfativa", "Floral e Frutado"]
+  ]
+},
+{
+  id: 29, cat: "🌸 Perfume Feminino",
+  brand: "La Rive",
+  name: "La Rive Isabel Eau de Parfum Feminino 90ml",
+  desc: "Fragrância elegante e luxuosa, com notas de bergamota, calêndula, lilás e jasmim, inspirada em clássicos da alta perfumaria. Perfume original, lacrado, com excelente relação custo-benefício.",
+  tagline: "Elegância inspirada nos grandes clássicos",
+  old: 109.90,
+  price: 78.90,
+  img: "https://m.media-amazon.com/images/I/41TH3bop8ZL._AC_SL500_.jpg",
+  link: "https://www.amazon.com.br/dp/B0013FG61I?tag=vitrinedi0119-20",
+  specs: [
+    ["tag", "Marca", "La Rive"],
+    ["gender", "Gênero", "Feminino"],
+    ["drop", "Concentração", "Eau de Parfum"],
+    ["box", "Volume", "90 ml"],
+    ["leaf", "Família Olfativa", "Âmbar"],
+    ["flower", "Notas marcantes", "Bergamota, calêndula, lilás, jasmim"]
+  ]
+},
+{
+  id: 30, cat: "🌸 Perfume Feminino",
+  brand: "Shakira",
+  name: "Shakira Dance Midnight Eau de Toilette Feminino 80ml",
+  desc: "Fragrância feminina sensual, com notas de tuberosa, flor de laranjeira e caramelo doce, envolvida por baunilha e patchouli. Um frasco vermelho cereja que captura movimento e intensidade.",
+  tagline: "Uma jornada sensual e hipnótica",
+  old: 189.00,
+  price: 147.64,
+  img: "https://m.media-amazon.com/images/I/71Z9DSmfooL._AC_SL500_.jpg",
+  link: "https://www.amazon.com.br/dp/B08ZSVXT2X?tag=vitrinedi0119-20",
+  specs: [
+    ["tag", "Marca", "Shakira"],
+    ["gender", "Gênero", "Feminino"],
+    ["drop", "Forma do produto", "Líquido"],
+    ["box", "Volume", "80 ml"],
+    ["flower", "Notas de topo", "Tuberosa, flor de laranjeira, caramelo"],
+    ["box", "Notas de fundo", "Baunilha, patchouli, bergamota"]
+  ]
+},
+{
+  id: 31, cat: "🌸 Perfume Feminino",
+  brand: "Shakira",
+  name: "Shakira Dance Midnight Eau de Toilette Feminino 50ml",
+  desc: "Fragrância feminina sensual, com notas de tuberosa, flor de laranjeira e caramelo doce, envolvida por baunilha e patchouli. Um frasco vermelho cereja que captura movimento e intensidade.",
+  tagline: "Uma jornada sensual e hipnótica",
+  old: 123.89,
+  price: 123.89,
+  img: "https://m.media-amazon.com/images/I/61Tc3CrJV1L._AC_SL500_.jpg",
+  link: "https://www.amazon.com.br/dp/B08ZSR9HLF?tag=vitrinedi0119-20",
+  specs: [
+    ["tag", "Marca", "Shakira"],
+    ["gender", "Gênero", "Feminino"],
+    ["drop", "Forma do produto", "Líquido"],
+    ["box", "Volume", "50 ml"],
+    ["flower", "Notas de topo", "Tuberosa, flor de laranjeira, caramelo"],
+    ["box", "Notas de fundo", "Baunilha, patchouli, bergamota"]
+  ]
+},
+{
+  id: 32, cat: "🌸 Perfume Feminino",
+  brand: "Paris Elysees",
+  name: "Paris Elysees Bloody Mary Eau de Toilette Feminino 100ml",
+  desc: "Fragrância feminina floral envolvente e sofisticada, com fixação duradoura na pele. Perfume importado em frasco elegante, ideal para o dia a dia com ótimo custo-benefício.",
+  tagline: "Sofisticação envolvente em cada frasco",
+  old: 89.34,
+  price: 78.90,
+  img: "https://m.media-amazon.com/images/I/6140Fe3GgeL._AC_SL500_.jpg",
+  link: "https://www.amazon.com.br/dp/B0DR8SYC29?tag=vitrinedi0119-20",
+  specs: [
+    ["tag", "Marca", "Paris Elysees"],
+    ["gender", "Gênero", "Feminino"],
+    ["drop", "Concentração", "Eau de Toilette"],
+    ["box", "Volume", "100 ml"],
+    ["leaf", "Família Olfativa", "Floral"]
+  ]
+},
+{
+  id: 33, cat: "🌸 Perfume Feminino",
+  brand: "Eudora",
+  name: "Eudora La Victorie Eau de Parfum Feminino 75ml",
+  desc: "Fragrância floral oriental envolvente, que combina força e delicadeza para mulheres corajosas e independentes. Com o exclusivo Segredo Eudora, garante maior fixação e durabilidade na pele.",
+  tagline: "Independência e elegância em cada gesto",
+  old: 179.99,
+  price: 140.00,
+  img: "https://m.media-amazon.com/images/I/71AHX6swRDL._AC_SL500_.jpg",
+  link: "https://www.amazon.com.br/dp/B0BS47WP62?tag=vitrinedi0119-20",
+  specs: [
+    ["tag", "Marca", "Eudora"],
+    ["gender", "Gênero", "Feminino"],
+    ["drop", "Forma do produto", "Aerossol"],
+    ["box", "Volume", "75 ml"],
+    ["leaf", "Família Olfativa", "Floral Oriental"],
+    ["shield", "Especial", "Segredo Eudora — maior fixação"]
+  ]
+},
+{
+  id: 34, cat: "🌸 Perfume Feminino",
+  brand: "Jequiti",
+  name: "Colônia Desodorante Feminino Hello Kitty Estilosa 25ml",
+  desc: "Fragrância floral frutada com notas de lichia, framboesa e fundo adocicado. Perfume juvenil leve e doce, em tamanho compacto, ideal para o dia a dia ou para levar na bolsa.",
+  tagline: "Doçura e estilo para o dia a dia",
+  old: 34.90,
+  price: 26.90,
+  img: "https://m.media-amazon.com/images/I/71bSasQXaHL._AC_SL500_.jpg",
+  link: "https://www.amazon.com.br/dp/B07NQV8545?tag=vitrinedi0119-20",
+  specs: [
+    ["tag", "Marca", "Jequiti"],
+    ["drop", "Tipo", "Colônia Desodorante"],
+    ["box", "Volume", "25 ml"],
+    ["leaf", "Família Olfativa", "Frutal Romântica"],
+    ["shield", "Especial", "Testado dermatologicamente"]
+  ]
+},
+{
+  id: 35, cat: "🌸 Perfume Feminino",
+  brand: "Paris Elysees",
+  name: "Paris Elysees Billion Woman Love Eau de Toilette Feminino 100ml",
+  desc: "Fragrância feminina adocicada com notas de baunilha, ideal para o uso diário. Perfume importado com ótimo custo-benefício, indicado para mulheres que buscam praticidade e qualidade.",
+  tagline: "Doçura e praticidade em um só frasco",
+  old: 78.90,
+  price: 78.90,
+  img: "https://m.media-amazon.com/images/I/61WfdU48caL._AC_SL500_.jpg",
+  link: "https://www.amazon.com.br/dp/B07MC6Q7FN?tag=vitrinedi0119-20",
+  specs: [
+    ["tag", "Marca", "Paris Elysees"],
+    ["gender", "Gênero", "Feminino"],
+    ["drop", "Concentração", "Eau de Toilette"],
+    ["box", "Volume", "100 ml"],
+    ["leaf", "Família Olfativa", "Baunilha"]
+  ]
+},
+{
+  id: 36, cat: "🌸 Perfume Feminino",
+  brand: "Jequiti",
+  name: "Colônia Desodorante Feminina Hello Kitty Apaixonada 25ml",
+  desc: "Fragrância floral frutada com toque doce e delicado, ideal para o público infantil e juvenil. Embalagem compacta de 25ml, fácil de levar na bolsa ou mochila, com o visual encantador da Hello Kitty.",
+  tagline: "Doçura e fofura em cada borrifada",
+  old: 34.99,
+  price: 34.99,
+  img: "https://m.media-amazon.com/images/I/71I1PPeXLIL._AC_SL500_.jpg",
+  link: "https://www.amazon.com.br/dp/B0D2S2X87N?tag=vitrinedi0119-20",
+  specs: [
+    ["tag", "Marca", "Jequiti"],
+    ["drop", "Tipo", "Colônia Desodorante"],
+    ["box", "Volume", "25 ml"],
+    ["leaf", "Família Olfativa", "Frutado"],
+    ["shield", "Especial", "Testado dermatologicamente"]
+  ]
+},
+{
+  id: 37, cat: "🎮 Console e Acessórios",
+  brand: "Genérico",
+  name: "Microfone Condensador USB RGB Gamer Profissional com Monitoramento P2",
+  desc: "Microfone condensador USB com captação clara e alta sensibilidade, ideal para streaming, podcast, lives e jogos online. Conexão plug and play, sem precisar instalar drivers.",
+  tagline: "Voz profissional para suas lives e gravações",
+  old: 109.90,
+  price: 104.40,
+  img: "https://m.media-amazon.com/images/I/6173wcGuGcL._AC_SL500_.jpg",
+  link: "https://www.amazon.com.br/dp/B0GXT8W2T1?tag=vitrinedi0119-20",
+  specs: [
+    ["tag", "Marca", "Genérico"],
+    ["cpu", "Conexão", "USB Plug and Play"],
+    ["target", "Monitoramento", "Saída P2 em tempo real"],
+    ["box", "Itens inclusos", "Microfone, cabo USB, base de mesa"],
+    ["shield", "Compatibilidade", "Windows e notebooks"]
+  ]
+},
+{
+  id: 38, cat: "🎮 Console e Acessórios",
+  brand: "TDD",
+  name: "Caixinha de Som Gamer RGB Premium para PC, Notebook e Console",
+  desc: "Caixa de som com áudio estéreo envolvente e iluminação RGB dinâmica, alimentação via USB e entrada P2. Conexão plug and play, compatível com PC, notebook, console e TV.",
+  tagline: "Estilo e som de qualidade pro seu setup",
+  old: 39.90,
+  price: 39.90,
+  img: "https://m.media-amazon.com/images/I/61zlntWkYUL._AC_SL500_.jpg",
+  link: "https://www.amazon.com.br/dp/B0FVZM19GV?tag=vitrinedi0119-20",
+  specs: [
+    ["tag", "Marca", "TDD"],
+    ["cpu", "Conexão", "USB + entrada P2"],
+    ["target", "Iluminação", "RGB dinâmica"],
+    ["shield", "Compatibilidade", "PC, notebook, console, TV"]
+  ]
+},
+{
+  id: 39, cat: "🎮 Console e Acessórios",
+  brand: "Genérico",
+  name: "Mouse Pad Gamer Premium Extra Grande 80x30 Hexagonal Neon",
+  desc: "Mouse pad extra grande com base antiderrapante e material impermeável, ideal para jogos, trabalho e estudos. Design premium com estampa hexagonal neon, bordas costuradas contra desgaste.",
+  tagline: "Precisão e estilo pro seu setup",
+  old: 32.90,
+  price: 32.90,
+  img: "https://m.media-amazon.com/images/I/71aj6t+h0jL._AC_SL500_.jpg",
+  link: "https://www.amazon.com.br/dp/B0H18DZVGG?tag=vitrinedi0119-20",
+  specs: [
+    ["tag", "Marca", "Genérico"],
+    ["ruler", "Tamanho", "80 x 30 cm"],
+    ["shield", "Especial", "Antiderrapante e impermeável"],
+    ["box", "Material", "Borracha com bordas costuradas"]
+  ]
+},
+{
+  id: 40, cat: "🎮 Console e Acessórios",
+  brand: "Genérico",
+  name: "Pegboard MDF Organizador Setup Gamer Home Office 34x59",
+  desc: "Painel organizador em madeira de engenharia, leve e resistente, ideal para organizar acessórios do setup gamer ou home office com praticidade e estilo.",
+  tagline: "Organização com estilo pro seu setup",
+  old: 78.90,
+  price: 78.90,
+  img: "https://m.media-amazon.com/images/I/51ANpFPhLbL._AC_SL500_.jpg",
+  link: "https://www.amazon.com.br/dp/B0DVMNZPTH?tag=vitrinedi0119-20",
+  specs: [
+    ["tag", "Marca", "Genérico"],
+    ["box", "Material", "Madeira de engenharia (MDF)"],
+    ["ruler", "Dimensões", "59 x 34 x 6 cm"],
+    ["home", "Tipo", "Pegboard organizador"]
+  ]
+},
+{
+  id: 41, cat: "🎮 Console e Acessórios",
+  brand: "Genérico",
+  name: "Mouse Sem Fio Recarregável Wireless Bluetooth RGB Ergonômico",
+  desc: "Mouse sem fio ultra silencioso com bateria recarregável, iluminação RGB e conexão dupla via Bluetooth ou USB 2.4GHz. Alcance de até 10 metros e DPI ajustável para diferentes tarefas.",
+  tagline: "Conforto, silêncio e estilo em um só clique",
+  old: 19.90,
+  price: 18.90,
+  img: "https://m.media-amazon.com/images/I/61SPNW4lBIL._AC_SL500_.jpg",
+  link: "https://www.amazon.com.br/dp/B0F1G2TL8P?tag=vitrinedi0119-20",
+  specs: [
+    ["tag", "Marca", "Genérico"],
+    ["cpu", "Conectividade", "Bluetooth + USB 2.4GHz"],
+    ["battery", "Bateria", "Recarregável"],
+    ["target", "Precisão", "DPI ajustável"],
+    ["shield", "Compatibilidade", "Windows, MacOS, Android, consoles"]
+  ]
+},
+{
+  id: 42, cat: "🎮 Console e Acessórios",
+  brand: "Redragon",
+  name: "Mouse Gamer Redragon Predator RGB M612 Preto",
+  desc: "Mouse gamer com sensor óptico Pixart PAW 3104 de alta performance e iluminação RGB. Conexão USB, design ergonômico, ideal para quem busca precisão e estilo nos jogos.",
+  tagline: "Precisão gamer com estilo RGB",
+  old: 159.00,
+  price: 79.98,
+  img: "https://m.media-amazon.com/images/I/71n1jxSgxBL._AC_SL500_.jpg",
+  link: "https://www.amazon.com.br/dp/B08T68T1T6?tag=vitrinedi0119-20",
+  specs: [
+    ["tag", "Marca", "Redragon"],
+    ["cpu", "Sensor", "Óptico Pixart PAW 3104"],
+    ["target", "Iluminação", "RGB"]
+  ]
 }
 ];
 
-/* Exemplos antigos guardados aqui apenas como referência — não usados no site */
-const PRODUCTS_EXEMPLOS_REFERENCIA = [
-  {
-    id:101, cat:"Beleza Masculina", brand:"AZZARO", name:"Azzaro Sport Eau de Toilette Masculino 100ml",
-    desc:"Perfume masculino fresco e energizante com toranja e sândalo que transmite vigor e dinamismo, ideal para o dia a dia e para a rotina de treino.",
-    tagline:"Frescor esportivo para encarar o dia com energia",
-    old:379.00, price:292.13,
-    img:"https://images.unsplash.com/photo-1594035910387-fea47794261f?w=600&q=80",
-    link:"https://exemplo-afiliado.com/azzaro-sport",
-    specs:[["tag","Marca","Azzaro"],["gender","Gênero","Masculino"],["leaf","Família olfativa","Fougère"],["drop","Concentração","Eau de Toilette"],["box","Volume","100 ml"],["sun","Estação indicada","Verão"],["clock","Fixação","4h"],["target","Projeção","Média"],["flower","Notas de saída","Toranja, notas cítricas"]]
-  },
-  {
-    id:2, cat:"Beleza Masculina", brand:"NAUTICA", name:"Nautica Voyage Eau de Toilette Masculino 50ml",
-    desc:"Fragrância masculina fresca e aquática com maçã e folhas verdes, transmitindo uma sensação de limpeza e frescor perfeita para o dia a dia.",
-    tagline:"Um clássico importado com ótimo custo-benefício",
-    old:139.00, price:99.00,
-    img:"https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=600&q=80",
-    link:"https://exemplo-afiliado.com/nautica-voyage",
-    specs:[["tag","Marca","Nautica"],["gender","Gênero","Masculino"],["leaf","Família olfativa","Aquática"],["drop","Concentração","Eau de Toilette"],["box","Volume","50 ml"],["sun","Estação indicada","Verão"],["clock","Fixação","3h"],["target","Projeção","Moderada"]]
-  },
-  {
-    id:3, cat:"Beleza Feminina", brand:"LUMIÈRE", name:"Lumière Femme Eau de Parfum 75ml",
-    desc:"Perfume feminino floral amadeirado com jasmim e baunilha, elegante e envolvente, perfeito para uso diário ou ocasiões especiais.",
-    tagline:"Elegância floral que acompanha o seu dia inteiro",
-    old:259.00, price:179.90,
-    img:"https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=600&q=80",
-    link:"https://exemplo-afiliado.com/lumiere-femme",
-    specs:[["tag","Marca","Lumière"],["gender","Gênero","Feminino"],["leaf","Família olfativa","Floral amadeirada"],["drop","Concentração","Eau de Parfum"],["box","Volume","75 ml"],["clock","Fixação","6h"]]
-  },
-  {
-    id:4, cat:"Beleza Feminina", brand:"NUANCE", name:"Kit Skincare Nuance Hidratação Facial",
-    desc:"Kit com sérum de vitamina C, hidratante facial e água micelar, formulado para peles sensíveis com resultado visível em poucas semanas.",
-    tagline:"Rotina completa em 3 passos para a sua pele",
-    old:189.00, price:129.00,
-    img:"https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&q=80",
-    link:"https://exemplo-afiliado.com/kit-nuance",
-    specs:[["tag","Marca","Nuance"],["box","Itens no kit","3 produtos"],["drop","Tipo de pele","Todos os tipos"],["shield","Dermatologicamente testado","Sim"]]
-  },
-  {
-    id:5, cat:"Eletrônicos", brand:"SOUNDCORE", name:"Fone de Ouvido Bluetooth SoundCore Pro",
-    desc:"Fone sem fio com cancelamento ativo de ruído, até 30h de bateria e som equilibrado para quem não abre mão de qualidade no dia a dia.",
-    tagline:"Silêncio sob controle, música em primeiro plano",
-    old:349.90, price:219.90,
-    img:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80",
-    link:"https://exemplo-afiliado.com/soundcore-pro",
-    specs:[["tag","Marca","SoundCore"],["cpu","Tipo","In-ear TWS"],["battery","Bateria","30h com case"],["shield","Cancelamento de ruído","Ativo (ANC)"],["box","Conteúdo da caixa","Fone + case + cabo"]]
-  },
-  {
-    id:6, cat:"Eletrônicos", brand:"PULSEFIT", name:"Smartwatch PulseFit X3 com GPS",
-    desc:"Relógio inteligente com monitor cardíaco, GPS integrado, resistência à água e mais de 20 modos de treino para acompanhar sua rotina.",
-    tagline:"Seus treinos e sua saúde, no seu pulso",
-    old:599.00, price:399.00,
-    img:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80",
-    link:"https://exemplo-afiliado.com/pulsefit-x3",
-    specs:[["tag","Marca","PulseFit"],["cpu","Tela","AMOLED 1.4\""],["battery","Bateria","até 7 dias"],["shield","Resistência","5 ATM"],["target","Modos de treino","20+"]]
-  },
-  {
-    id:7, cat:"Eletrônicos", brand:"BOOMBAY", name:"Caixa de Som Bluetooth BoomBay 360",
-    desc:"Caixa de som portátil à prova d'água, com som 360° e graves potentes, ideal para levar para praia, piscina ou churrasco com os amigos.",
-    tagline:"Som que enche o ambiente, onde você estiver",
-    old:299.00, price:189.00,
-    img:"https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600&q=80",
-    link:"https://exemplo-afiliado.com/boombay-360",
-    specs:[["tag","Marca","BoomBay"],["battery","Bateria","12h de reprodução"],["shield","Resistência","IPX7"],["cpu","Conexão","Bluetooth 5.3"]]
-  },
-  {
-    id:8, cat:"Moda", brand:"URBAN LINE", name:"Jaqueta Jeans Urban Line Unissex",
-    desc:"Jaqueta jeans de algodão premium, corte reto e lavagem clara, uma peça coringa que combina com praticamente tudo no guarda-roupa.",
-    tagline:"Um clássico que nunca sai de moda",
-    old:249.90, price:169.90,
-    img:"https://images.unsplash.com/photo-1601333144130-8cbb312386b6?w=600&q=80",
-    link:"https://exemplo-afiliado.com/jaqueta-urban-line",
-    specs:[["shirt","Marca","Urban Line"],["gender","Gênero","Unissex"],["ruler","Tecido","Algodão 98% / Elastano 2%"],["box","Tamanhos","P ao GG"]]
-  },
-  {
-    id:9, cat:"Moda", brand:"HORIZON", name:"Óculos de Sol Horizon Polarizado",
-    desc:"Óculos de sol com lentes polarizadas UV400 e armação leve em acetato, proteção total com estilo para o dia a dia ou viagens.",
-    tagline:"Proteção UV400 com atitude",
-    old:189.00, price:119.00,
-    img:"https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&q=80",
-    link:"https://exemplo-afiliado.com/horizon-oculos",
-    specs:[["shield","Proteção","UV400"],["drop","Lentes","Polarizadas"],["box","Armação","Acetato"]]
-  },
-  {
-    id:10, cat:"Tênis Unissex", brand:"STRIDE", name:"Tênis Stride Runner Unissex",
-    desc:"Tênis de corrida leve com espuma de alta absorção de impacto e cabedal respirável, feito para acompanhar seus treinos e sua rotina.",
-    tagline:"Leveza e amortecimento em cada passada",
-    old:329.90, price:219.90,
-    img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80",
-    link:"https://exemplo-afiliado.com/stride-runner",
-    specs:[["shoe","Marca","Stride"],["gender","Gênero","Unissex"],["ruler","Numeração","34 ao 44"],["target","Indicado para","Corrida e caminhada"]]
-  },
-  {
-    id:11, cat:"Tênis Unissex", brand:"CITYWALK", name:"Tênis CityWalk Casual Unissex",
-    desc:"Tênis casual em couro sintético com solado emborrachado antiderrapante, ideal para o dia a dia, trabalho ou passeios com estilo.",
-    tagline:"Conforto casual para qualquer hora do dia",
-    old:229.90, price:154.90,
-    img:"https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&q=80",
-    link:"https://exemplo-afiliado.com/citywalk-casual",
-    specs:[["shoe","Marca","CityWalk"],["gender","Gênero","Unissex"],["ruler","Numeração","33 ao 43"],["box","Material","Couro sintético"]]
-  },
-  {
-    id:12, cat:"Casa", brand:"COOKPRO", name:"Air Fryer CookPro Digital 5L",
-    desc:"Fritadeira elétrica sem óleo com painel digital, 8 funções pré-programadas e capacidade para toda a família, prática de limpar e usar.",
-    tagline:"Sabor de frito, sem o óleo de sempre",
-    old:449.00, price:299.00,
-    img:"https://images.unsplash.com/photo-1648223862205-49f9dd77c66c?w=600&q=80",
-    link:"https://exemplo-afiliado.com/cookpro-airfryer",
-    specs:[["home","Marca","CookPro"],["box","Capacidade","5 litros"],["cpu","Painel","Digital touch"],["target","Funções","8 pré-programadas"]]
-  },
-  {
-    id:13, cat:"Casa", brand:"LUMAR", name:"Luminária de Mesa Lumar LED Touch",
-    desc:"Luminária de mesa com LED regulável por toque, 3 temperaturas de luz e carregamento USB, perfeita para o home office ou a cabeceira.",
-    tagline:"A luz certa para cada momento do seu dia",
-    old:129.90, price:79.90,
-    img:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&q=80",
-    link:"https://exemplo-afiliado.com/lumar-led",
-    specs:[["home","Marca","Lumar"],["cpu","Controle","Touch"],["battery","Energia","USB / recarregável"],["sun","Temperaturas de luz","3 modos"]]
-  },
-  {
-    id:14, cat:"Casa", brand:"NUVEM", name:"Jogo de Cama Nuvem 200 Fios Casal",
-    desc:"Jogo de cama 100% algodão com 200 fios, toque macio e caimento perfeito, disponível em tons neutros que combinam com qualquer decoração.",
-    tagline:"Noites mais macias, do jeito que você merece",
-    old:219.00, price:149.00,
-    img:"https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&q=80",
-    link:"https://exemplo-afiliado.com/jogo-cama-nuvem",
-    specs:[["home","Marca","Nuvem"],["ruler","Tecido","100% algodão, 200 fios"],["box","Tamanho","Casal"]]
-  }
-  ,{
-    id:15, cat:"Beleza Masculina", brand:"AZZARO", name:"Azzaro Pour Homme Perfume Masculino Eau de Toilette 50ml",
-    desc:"O Azzaro Pour Homme é um perfume masculino clássico, com características marcantes, excelente fixação e uma personalidade que deixa uma impressão inesquecível.",
-    tagline:"Elegância clássica em cada borrifada",
-    old:299.00, price:154.99,
-    img:"https://m.media-amazon.com/images/I/71G3D8yIs0L._AC_SL1000_.jpg",
-    link:"https://link.amazon.com/B00LlArnI",
-    specs:[["tag","Marca","Azzaro"],["gender","Gênero","Masculino"],["leaf","Família olfativa","Amadeirada"],["drop","Concentração","Eau de Toilette"],["box","Volume","50 ml"]]
-  }
-  ,{
-    id:16, cat:"Beleza Masculina", brand:"NAUTICA", name:"Nautica Voyage Eau de Toilette Masculino 50ml",
-    desc:"Fragrância masculina fresca e aquática com maçã e folhas verdes, transmitindo uma sensação de limpeza e frescor perfeita para o dia a dia.",
-    tagline:"Um clássico importado com ótimo custo-benefício",
-    old:139.00, price:99.00,
-    img:"https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=600&q=80",
-    link:"https://exemplo-afiliado.com/nautica-voyage",
-    specs:[["tag","Marca","Náutica"],["gender","Gênero","Masculino"],["leaf","Família olfativa","Aquática"],["drop","Concentração","Eau de Toilette"],["box","Volume","50 ml"],["sun","Estação indicada","Verão"]]
-  }
-  ,{
-    id:17, cat:"Beleza Feminina", brand:"LUMIÈRE", name:"Lumière Femme Eau de Parfum 75ml",
-    desc:"Perfume feminino floral amadeirado com jasmim e baunilha, elegante e envolvente, perfeito para uso diário ou ocasiões especiais.",
-    tagline:"Elegância floral que acompanha o seu dia inteiro",
-    old:259.00, price:179.90,
-    img:"https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=600&q=80",
-    link:"https://exemplo-afiliado.com/lumiere-femme",
-    specs:[["tag","Marca","Lumière"],["gender","Gênero","Feminino"],["leaf","Família olfativa","Amadeirada floral"],["drop","Concentração","Eau de Parfum"],["box","Volume","75 ml"],["clock","Fixação","6h"]]
-  }
-  ,{
-    id:18, cat:"Beleza Feminina", brand:"NUANCE", name:"Kit Skincare Nuance Hidratação Facial",
-    desc:"Kit com sérum de vitamina C, hidratante facial e água micelar, formulado para peles sensíveis com resultado visível em poucas semanas.",
-    tagline:"Rotina completa em 3 passos para a sua pele",
-    old:189.00, price:129.00,
-    img:"https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&q=80",
-    link:"https://exemplo-afiliado.com/kit-nuance",
-    specs:[["tag","Marca","Nuance"],["box","Itens no kit","3 produtos"],["drop","Tipo de pele","Todos os tipos"],["shield","Dermatologicamente testado","Sim"]]
-  }
-];
-
-/* =========================================================
-   ESTADO E RENDERIZAÇÃO
-========================================================= */
 const PRICES = PRODUCTS.map(p=>p.price).filter(v=>typeof v==='number' && !isNaN(v));
 const PRICE_MIN = PRICES.length ? Math.floor(Math.min(...PRICES)) : 0;
 const PRICE_MAX = PRICES.length ? Math.ceil(Math.max(...PRICES)) : 1000;
@@ -1062,7 +1257,6 @@ let state = { cat:"Todos", search:"", min:PRICE_MIN, max:PRICE_MAX, onlyDeal:fal
 function discountPct(p){ return Math.round((1 - p.price/p.old)*100); }
 function money(v){ return v.toLocaleString('pt-BR',{minimumFractionDigits:2, maximumFractionDigits:2}); }
 
-/* --- categorias no header --- */
 const catsNav = document.getElementById('catsNav');
 CATEGORIES.forEach(c=>{
   const el = document.createElement('button');
@@ -1072,7 +1266,6 @@ CATEGORIES.forEach(c=>{
   el.dataset.cat = c;
   catsNav.appendChild(el);
 });
-// pill extra "Ofertas"
 const dealPill = document.createElement('button');
 dealPill.className = 'cat-pill deal';
 dealPill.textContent = '🔥 Ofertas';
@@ -1086,7 +1279,6 @@ function syncCatPills(){
   document.getElementById('catalogTitle').textContent = state.cat === "Todos" ? "Todos os produtos" : state.cat;
 }
 
-/* --- footer category links --- */
 document.querySelectorAll('[data-cat-link]').forEach(a=>{
   a.addEventListener('click', e=>{
     e.preventDefault();
@@ -1095,13 +1287,10 @@ document.querySelectorAll('[data-cat-link]').forEach(a=>{
   });
 });
 
-/* --- busca --- */
 document.getElementById('searchInput').addEventListener('input', e=>{ state.search = e.target.value.toLowerCase(); render(); });
 
-/* --- ordenação --- */
 document.getElementById('sortSelect').addEventListener('change', e=>{ state.sort = e.target.value; render(); });
 
-/* --- somente ofertas (chip da sidebar) --- */
 const onlyDealBox = document.getElementById('onlyDeal');
 onlyDealBox.addEventListener('change', e=>{ state.onlyDeal = e.target.checked; syncDealChip(); render(); });
 function syncDealChip(){
@@ -1109,7 +1298,6 @@ function syncDealChip(){
   dealPill.classList.toggle('active', state.onlyDeal);
 }
 
-/* --- range de preço --- */
 const rangeMin = document.getElementById('rangeMin');
 const rangeMax = document.getElementById('rangeMax');
 const inputMin = document.getElementById('inputMin');
@@ -1138,7 +1326,6 @@ rangeMax.addEventListener('input', ()=> applyPriceState(Number(rangeMin.value), 
 inputMin.addEventListener('change', ()=> applyPriceState(Number(inputMin.value)||PRICE_MIN, state.max));
 inputMax.addEventListener('change', ()=> applyPriceState(state.min, Number(inputMax.value)||PRICE_MAX));
 
-/* --- limpar filtros --- */
 document.getElementById('clearFilters').addEventListener('click', ()=>{
   state = { cat:"Todos", search:"", min:PRICE_MIN, max:PRICE_MAX, onlyDeal:false, sort:"relevance" };
   document.getElementById('searchInput').value = '';
@@ -1150,26 +1337,24 @@ document.getElementById('clearFilters').addEventListener('click', ()=>{
   updateRailFill(); render();
 });
 
-/* --- render de card --- */
 function cardHTML(p){
   const disc = discountPct(p);
-  return `
-  <div class="card" data-id="${p.id}">
-    <div class="card-media">
-      ${disc>0 ? `<span class="badge-discount">-${disc}%</span>` : ''}
-      <img src="${p.img}" alt="${p.name}" loading="lazy">
-    </div>
-    <div class="card-body">
-      <span class="card-eyebrow">${p.brand}</span>
-      <h3 class="card-title">${p.name}</h3>
-      <p class="card-desc">${p.desc}</p>
-      <div class="card-price-row">
-        ${p.old > p.price ? `<div class="old-price">R$ ${money(p.old)}</div>` : ''}
-        <div class="new-price">R$ ${money(p.price)}</div>
-      </div>
-      <button class="card-btn" data-open="${p.id}">Ver detalhes</button>
-    </div>
-  </div>`;
+  return '<div class="card" data-id="' + p.id + '">' +
+    '<div class="card-media">' +
+      (disc>0 ? '<span class="badge-discount">-' + disc + '%</span>' : '') +
+      '<img src="' + p.img + '" alt="' + p.name + '" loading="lazy">' +
+    '</div>' +
+    '<div class="card-body">' +
+      '<span class="card-eyebrow">' + p.brand + '</span>' +
+      '<h3 class="card-title">' + p.name + '</h3>' +
+      '<p class="card-desc">' + p.desc + '</p>' +
+      '<div class="card-price-row">' +
+        (p.old > p.price ? '<div class="old-price">R$ ' + money(p.old) + '</div>' : '') +
+        '<div class="new-price">R$ ' + money(p.price) + '</div>' +
+      '</div>' +
+      '<button class="card-btn" data-open="' + p.id + '">Ver detalhes</button>' +
+    '</div>' +
+  '</div>';
 }
 
 function filteredSorted(){
@@ -1190,7 +1375,7 @@ function filteredSorted(){
 function render(){
   const list = filteredSorted();
   const grid = document.getElementById('productGrid');
-  grid.innerHTML = list.length ? list.map(cardHTML).join('') : `<div class="empty-state">Nenhum produto encontrado com esses filtros.<br>Tente ajustar a busca ou os filtros de preço.</div>`;
+  grid.innerHTML = list.length ? list.map(cardHTML).join('') : '<div class="empty-state">Nenhum produto encontrado com esses filtros.<br>Tente ajustar a busca ou os filtros de preço.</div>';
   document.getElementById('gridCount').textContent = list.length + (list.length===1 ? ' produto' : ' produtos');
   grid.querySelectorAll('[data-open]').forEach(btn=>{
     btn.addEventListener('click', ()=> openModal(Number(btn.dataset.open)));
@@ -1200,7 +1385,6 @@ function render(){
   });
 }
 
-/* --- modal --- */
 const overlay = document.getElementById('modalOverlay');
 function openModal(id){
   const p = PRODUCTS.find(x=>x.id===id);
@@ -1211,9 +1395,9 @@ function openModal(id){
   document.getElementById('modalTagline').textContent = p.tagline;
   document.getElementById('modalOld').textContent = p.old > p.price ? ('R$ ' + money(p.old)) : '';
   document.getElementById('modalPrice').textContent = 'R$ ' + money(p.price);
-  document.getElementById('modalSpecs').innerHTML = p.specs.map(s=>`
-    <div class="spec">${icon(s[0])}<div><div class="s-label">${s[1]}</div><div class="s-value">${s[2]}</div></div></div>
-  `).join('');
+  document.getElementById('modalSpecs').innerHTML = p.specs.map(function(s){
+    return '<div class="spec">' + icon(s[0]) + '<div><div class="s-label">' + s[1] + '</div><div class="s-value">' + s[2] + '</div></div></div>';
+  }).join('');
   document.getElementById('modalCta').href = p.link;
   overlay.classList.add('open');
 }
@@ -1221,32 +1405,22 @@ document.getElementById('modalClose').addEventListener('click', ()=> overlay.cla
 overlay.addEventListener('click', e=>{ if(e.target===overlay) overlay.classList.remove('open'); });
 document.addEventListener('keydown', e=>{ if(e.key==='Escape') overlay.classList.remove('open'); });
 
-/* --- vitrine (hero) com 4 destaques em oferta --- */
 function renderShowcase(){
   const top = [...PRODUCTS].sort((a,b)=>discountPct(b)-discountPct(a)).slice(0,4);
   if(!top.length){
-    document.getElementById('heroShowcase').innerHTML = `
-      <div class="showcase-card" style="grid-column:1/-1;text-align:center;color:var(--text-400);padding:20px 10px;">
-        Adicione seus produtos no array PRODUCTS para eles aparecerem aqui.
-      </div>`;
+    document.getElementById('heroShowcase').innerHTML = '<div class="showcase-card" style="grid-column:1/-1;text-align:center;color:var(--text-400);padding:20px 10px;">Adicione seus produtos no array PRODUCTS para eles aparecerem aqui.</div>';
     return;
   }
-  document.getElementById('heroShowcase').innerHTML = top.map(p=>`
-    <div class="showcase-card">
-      <img src="${p.img}" alt="${p.name}">
-      <div class="tag">${p.brand}</div>
-      <div class="price">R$ ${money(p.price)}</div>
-    </div>
-  `).join('');
+  document.getElementById('heroShowcase').innerHTML = top.map(function(p){
+    return '<div class="showcase-card"><img src="' + p.img + '" alt="' + p.name + '"><div class="tag">' + p.brand + '</div><div class="price">R$ ' + money(p.price) + '</div></div>';
+  }).join('');
 }
 
-/* --- init --- */
 document.getElementById('statCount').textContent = PRODUCTS.length;
 updateRailFill();
 renderShowcase();
 render();
 
-/* --- cabecalho compacto ao rolar a pagina --- */
 const topbarEl = document.querySelector('.topbar');
 function updateTopbarScroll(){
   topbarEl.classList.toggle('is-scrolled', window.scrollY > 40);
