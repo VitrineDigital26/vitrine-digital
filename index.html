@@ -484,17 +484,17 @@ const PRODUCTS = [
     id: 1,
     cat: "🎮 Console e Acessórios",
     brand: "Ortobras",
-    name: "Capa Para Almofada Cadeira De Rodas Ortobras 40/42/44/46",
-    desc: "Capa para almofada de cadeira de rodas em tecido nylon, com fechamento em zíper e suporte para fixação no assento. Medidas: 40/42/44/46cm de largura e 40cm de comprimento.",
+    name: "Capa Para Almofada Cadeira De Rodas Ortobras 42",
+    desc: "Capa para almofada de cadeira de rodas em tecido nylon, com fechamento em zíper e suporte para fixação no assento. Tamanho 42, medindo 42cm de largura e 40cm de comprimento.",
     tagline: "Praticidade e proteção para o dia a dia",
     old: 28.90,
     price: 28.90,
     img: "https://http2.mlstatic.com/D_NQ_NP_2X_752198-MLB91419415755_092025-F-capa-para-almofada-cadeira-de-rodas-ortobras-40424446.webp",
-    link: "https://www.mercadolivre.com.br/social/rs20260801125549578?matt_word=rs20260801125549578&matt_tool=91936783&forceInApp=true&ref=BLra3nTJQ5BzsvsuOxVD2tN%2BZgLNFPRwVLn1APUKIU81OtwSjCXfx9S3dj2rBHPBC5N3bWEubyriiIQTpYI77AXGjqwlmbCNNauy1p3DZRboVgSHChhB%2FZ7bHL8PJG5lxAJ6oMLYmMGH9T6wdpMimJR6o4pu31ZNrIZXene%2Bh6hSJxPFl%2BmU9O8IxP2GkcWjK3QquNlYE1FrZRGR0kpFR0rVYzmCqmY%2FaS3Qfsx6ZOunSoZdt2VDci9jSKLsuSDWYN8h",
+    link: "https://produto.mercadolivre.com.br/MLB-2104770575-capa-para-almofada-cadeira-de-rodas-ortobras-40424446-_JM?searchVariation=173975653091&matt_event_ts=1786042043579&matt_d2id=9f79983c-4e3a-46f3-949c-beb90879a4f2&matt_tracing_id=8d44cafd-029d-4519-a794-d898e0c98dfe&matt_tool_id=91936783",
     specs: [
       ["tag", "Marca", "Ortobras"],
       ["box", "Material", "Nylon com zíper"],
-      ["ruler", "Largura", "40/42/44/46 cm"],
+      ["ruler", "Largura", "42 cm"],
       ["ruler", "Comprimento", "40 cm"],
       ["shield", "Especial", "Suporte para fixação no assento"]
     ]
@@ -1379,6 +1379,7 @@ function filteredSorted(){
   if(state.sort === 'price-desc') list.sort((a,b)=>b.price-a.price);
   return list;
 }
+
 function render(){
   const list = filteredSorted();
   const grid = document.getElementById('productGrid');
